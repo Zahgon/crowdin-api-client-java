@@ -7,11 +7,11 @@ public enum TextDirection implements EnumConverter<TextDirection> {
     LTR, RTL;
 
     public static TextDirection from(String value) {
-        return TextDirection.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(TextDirection v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

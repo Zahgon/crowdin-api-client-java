@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.deser.ContextualDeserializer;
 import com.crowdin.client.core.model.EnumConverter;
 import lombok.SneakyThrows;
-
 import java.io.IOException;
 
 public class EnumDeserializer extends JsonDeserializer<Enum> implements ContextualDeserializer {
@@ -26,19 +25,13 @@ public class EnumDeserializer extends JsonDeserializer<Enum> implements Contextu
 
     @Override
     public JsonDeserializer<?> createContextual(DeserializationContext deserializationContext, BeanProperty beanProperty) throws JsonMappingException {
-        //beanProperty is null when the type to deserialize is the top-level type or a generic type, not a type of a bean property
-        JavaType type = deserializationContext.getContextualType() != null
-                ? deserializationContext.getContextualType()
-                : beanProperty.getMember().getType();
-        return new EnumDeserializer(type);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Enum deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        String text = p.getText();
-        return this.deserialize((Class<? extends Enum>) this.type.getRawClass(), text);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     @SneakyThrows
     private Enum deserialize(Class<? extends Enum> type, String value) {

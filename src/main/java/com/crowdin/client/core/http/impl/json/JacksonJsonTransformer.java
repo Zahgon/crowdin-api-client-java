@@ -19,60 +19,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import lombok.SneakyThrows;
-
 import java.util.Date;
 
 public class JacksonJsonTransformer implements JsonTransformer {
 
     private final ObjectMapper objectMapper;
+
     private final ObjectMapper errorObjectMapper;
 
     public JacksonJsonTransformer() {
-        ObjectMapper cleanObjectMapper = new ObjectMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        SimpleModule enumModule = new SimpleModule()
-            .addDeserializer(Enum.class, new EnumDeserializer());
-
-        SimpleModule module = new SimpleModule()
-            .addDeserializer(Date.class, new DateDeserializer())
-            .addSerializer(Enum.class, new EnumSerializer())
-            .addDeserializer(Enum.class, new EnumDeserializer())
-            .addDeserializer(CrowdinApiException.class, new CrowdinApiExceptionDeserializer(cleanObjectMapper))
-            .addDeserializer(Project.class, new ProjectDeserializer(cleanObjectMapper.copy()
-                .registerModule(enumModule)))
-            .addDeserializer(FileInfo.class, new FileInfoDeserializer(cleanObjectMapper.copy()
-                .registerModule(enumModule)
-                .registerModule(new SimpleModule()
-                    .addDeserializer(ImportOptions.class, new FileImportOptionsDeserializer(cleanObjectMapper))
-                    .addDeserializer(ExportOptions.class, new FileExportOptionsDeserializer(cleanObjectMapper)))))
-            .addDeserializer(LanguageTranslations.class, new LanguageTranslationsDeserializer(cleanObjectMapper))
-            .addDeserializer(FileFormatSettingsResource.class, new FileFormatSettingsDeserializer(cleanObjectMapper))
-            .addDeserializer(StringsExporterSettingsResource.class, new StringsExporterSettingsDeserializer(cleanObjectMapper));
-        this.objectMapper = cleanObjectMapper.copy()
-                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
-                .setDateFormat(new StdDateFormat())
-                .registerModule(module)
-                .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE)
-                .setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        ObjectMapper cleanObjectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        SimpleModule enumModule = new SimpleModule().addDeserializer(Enum.class, new EnumDeserializer());
+        SimpleModule module = new SimpleModule().addDeserializer(Date.class, new DateDeserializer()).addSerializer(Enum.class, new EnumSerializer()).addDeserializer(Enum.class, new EnumDeserializer()).addDeserializer(CrowdinApiException.class, new CrowdinApiExceptionDeserializer(cleanObjectMapper)).addDeserializer(Project.class, new ProjectDeserializer(cleanObjectMapper.copy().registerModule(enumModule))).addDeserializer(FileInfo.class, new FileInfoDeserializer(cleanObjectMapper.copy().registerModule(enumModule).registerModule(new SimpleModule().addDeserializer(ImportOptions.class, new FileImportOptionsDeserializer(cleanObjectMapper)).addDeserializer(ExportOptions.class, new FileExportOptionsDeserializer(cleanObjectMapper))))).addDeserializer(LanguageTranslations.class, new LanguageTranslationsDeserializer(cleanObjectMapper)).addDeserializer(FileFormatSettingsResource.class, new FileFormatSettingsDeserializer(cleanObjectMapper)).addDeserializer(StringsExporterSettingsResource.class, new StringsExporterSettingsDeserializer(cleanObjectMapper));
+        this.objectMapper = cleanObjectMapper.copy().setSerializationInclusion(JsonInclude.Include.NON_NULL).setDateFormat(new StdDateFormat()).registerModule(module).setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE).setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         this.errorObjectMapper = cleanObjectMapper;
     }
 
     @Override
     @SneakyThrows
     public <T> T parse(String json, Class<T> clazz) {
-        if (clazz.equals(HttpException.class) || clazz.equals(HttpBadRequestException.class)) {
-            return this.errorObjectMapper.readValue(json, clazz);
-        }
-        return this.objectMapper.readValue(json, clazz);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     @SneakyThrows
     public <T> String convert(T obj) {
-        return this.objectMapper.writeValueAsString(obj);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ObjectMapper getObjectMapper() {
-        return this.objectMapper;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

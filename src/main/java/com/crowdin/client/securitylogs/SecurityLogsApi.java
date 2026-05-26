@@ -11,7 +11,6 @@ import com.crowdin.client.core.model.ResponseObject;
 import com.crowdin.client.securitylogs.model.SecurityLogResource;
 import com.crowdin.client.securitylogs.model.SecurityLogResourceObject;
 import com.crowdin.client.securitylogs.model.SecurityLogsResourceResponseList;
-
 import java.util.Map;
 import java.util.Optional;
 
@@ -38,14 +37,7 @@ public class SecurityLogsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SecurityLogResource> listUserSecurityLogs(Long userId, Long limit, Integer offset, String event, String ipAddress) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "event", Optional.ofNullable(event),
-                "ipAddress", Optional.ofNullable(ipAddress)
-        );
-        SecurityLogsResourceResponseList securityLogsResponseList = this.httpClient.get(this.url + "/users/" + userId+ "/security-logs", new HttpRequestConfig(queryParams), SecurityLogsResourceResponseList.class);
-        return SecurityLogsResourceResponseList.to(securityLogsResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -58,8 +50,7 @@ public class SecurityLogsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<SecurityLogResource> getUserSecurityLog(Long userId, Long securityLogId) throws HttpException, HttpBadRequestException {
-        SecurityLogResourceObject securityLogResourceObject = this.httpClient.get(this.url + "/users/" + userId+ "/security-logs/" + securityLogId, new HttpRequestConfig(), SecurityLogResourceObject.class);
-        return ResponseObject.of(securityLogResourceObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -75,18 +66,8 @@ public class SecurityLogsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.security-logs.getMany" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseList<SecurityLogResource> listOrganizationSecurityLogs(Long limit, Integer offset, String event, String createdAfter, String createdBefore, String ipAddress,Long userId) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "event", Optional.ofNullable(event),
-                "createdAfter", Optional.ofNullable(createdAfter),
-                "createdBefore", Optional.ofNullable(createdBefore),
-                "ipAddress", Optional.ofNullable(ipAddress),
-                "userId", Optional.ofNullable(userId)
-        );
-        SecurityLogsResourceResponseList securityLogsResponseList = this.httpClient.get(this.url + "/security-logs", new HttpRequestConfig(queryParams), SecurityLogsResourceResponseList.class);
-        return SecurityLogsResourceResponseList.to(securityLogsResponseList);
+    public ResponseList<SecurityLogResource> listOrganizationSecurityLogs(Long limit, Integer offset, String event, String createdAfter, String createdBefore, String ipAddress, Long userId) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -97,10 +78,6 @@ public class SecurityLogsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<SecurityLogResource> getOrganizationSecurityLog(Long securityLogId) throws HttpException, HttpBadRequestException {
-        SecurityLogResourceObject securityLogResourceObject = this.httpClient.get(this.url + "/security-logs/" + securityLogId, new HttpRequestConfig(), SecurityLogResourceObject.class);
-        return ResponseObject.of(securityLogResourceObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-
-
 }

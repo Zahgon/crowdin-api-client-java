@@ -9,12 +9,10 @@ import com.crowdin.client.core.model.Credentials;
 import com.crowdin.client.core.model.ResponseList;
 import com.crowdin.client.core.model.ResponseObject;
 import com.crowdin.client.stringcorrections.model.*;
-
 import java.util.Map;
 import java.util.Optional;
 
 public class StringCorrectionsApi extends CrowdinApi {
-
 
     public StringCorrectionsApi(Credentials credentials) {
         super(credentials);
@@ -33,15 +31,7 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Correction> listCorrections(Long projectId, ListCorrectionsQueryParams params) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.of(params.getStringId()),
-                "orderBy", Optional.ofNullable(params.getOrderBy()),
-                "denormalizePlaceholders", Optional.ofNullable(params.getDenormalizePlaceholders()),
-                "limit", Optional.ofNullable(params.getLimit()),
-                "offset", Optional.ofNullable(params.getOffset())
-        );
-        CorrectionResponseList response = this.httpClient.get(this.url + "/projects/" + projectId + "/corrections", new HttpRequestConfig(queryParams), CorrectionResponseList.class);
-        return CorrectionResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -53,8 +43,7 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Correction> addCorrection(Long projectId, AddCorrectionRequest request) throws HttpException, HttpBadRequestException {
-        CorrectionResponseObject response = this.httpClient.post(this.url + "/projects/" + projectId + "/corrections", request, new HttpRequestConfig(), CorrectionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -66,8 +55,7 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Correction> getCorrection(Long projectId, Long correctionId) throws HttpException, HttpBadRequestException {
-        CorrectionResponseObject response = this.httpClient.get(this.url + "/projects/" + projectId + "/corrections/" + correctionId, new HttpRequestConfig(), CorrectionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -78,10 +66,7 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteCorrections(Long projectId, Long stringId) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.of(stringId)
-        );
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/corrections", new HttpRequestConfig(queryParams), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -93,8 +78,7 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Correction> restoreCorrection(Long projectId, Long correctionId) throws HttpException, HttpBadRequestException {
-        CorrectionResponseObject response = this.httpClient.put(this.url + "/projects/" + projectId + "/corrections/" + correctionId, null, new HttpRequestConfig(), CorrectionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -105,7 +89,6 @@ public class StringCorrectionsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteCorrection(Long projectId, Long correctionId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/corrections/" + correctionId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

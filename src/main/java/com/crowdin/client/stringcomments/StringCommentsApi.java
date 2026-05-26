@@ -11,7 +11,6 @@ import com.crowdin.client.stringcomments.model.StringComment;
 import com.crowdin.client.stringcomments.model.StringCommentResponseList;
 import com.crowdin.client.stringcomments.model.StringCommentResponseObject;
 import com.crowdin.client.stringcomments.model.Type;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -41,17 +40,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringComment> listStringComments(Long projectId, Long stringId, Integer limit, Integer offset, Type type, String issueType, IssueStatus issueStatus) {
-        String builtUrl = String.format("%s/projects/%d/comments", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-            "limit", Optional.ofNullable(limit),
-            "offset", Optional.ofNullable(offset),
-            "type", Optional.ofNullable(type),
-            "stringId", Optional.ofNullable(stringId),
-            "issueType", Optional.ofNullable(issueType),
-            "issueStatus", Optional.ofNullable(issueStatus)
-        );
-        StringCommentResponseList response = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), StringCommentResponseList.class);
-        return StringCommentResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -70,18 +59,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringComment> listStringComments(Long projectId, Long stringId, Integer limit, Integer offset, Type type, String issueType, IssueStatus issueStatus, List<OrderByField> orderBy) {
-        String builtUrl = String.format("%s/projects/%d/comments", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "type", Optional.ofNullable(type),
-                "stringId", Optional.ofNullable(stringId),
-                "issueType", Optional.ofNullable(issueType),
-                "issueStatus", Optional.ofNullable(issueStatus),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        StringCommentResponseList response = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), StringCommentResponseList.class);
-        return StringCommentResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -94,9 +72,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringComment> addStringComment(Long projectId, AddStringCommentRequest request) {
-        String builtUrl = String.format("%s/projects/%d/comments", this.url, projectId);
-        StringCommentResponseObject response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), StringCommentResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -109,9 +85,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringComment> getStringComment(Long projectId, Long stringCommentId) {
-        String builtUrl = String.format("%s/projects/%d/comments/%d", this.url, projectId, stringCommentId);
-        StringCommentResponseObject response = this.httpClient.get(builtUrl, new HttpRequestConfig(), StringCommentResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -123,8 +97,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteStringComment(Long projectId, Long stringCommentId) {
-        String builtUrl = String.format("%s/projects/%d/comments/%d", this.url, projectId, stringCommentId);
-        this.httpClient.delete(builtUrl, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -138,9 +111,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringComment> editStringComment(Long projectId, Long stringCommentId, List<PatchRequest> request) {
-        String builtUrl = String.format("%s/projects/%d/comments/%d", this.url, projectId, stringCommentId);
-        StringCommentResponseObject response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), StringCommentResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -153,9 +124,7 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringComment> stringCommentBatchOperations(Long projectId, List<PatchRequest> request) {
-        String builtUrl = String.format("%s/projects/%d/comments", this.url, projectId);
-        StringCommentResponseList response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), StringCommentResponseList.class);
-        return StringCommentResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -168,7 +137,6 @@ public class StringCommentsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteAttachmentFromStringComment(Long projectId, Long commentId, Long attachmentId) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/comments/%d/attachments/%d", this.url, projectId, commentId, attachmentId);
-        this.httpClient.delete(builtUrl, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

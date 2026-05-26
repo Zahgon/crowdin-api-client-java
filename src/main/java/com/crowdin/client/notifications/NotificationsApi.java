@@ -10,7 +10,7 @@ import com.crowdin.client.notifications.model.SendNotificationToAuthenticatedUse
 import com.crowdin.client.notifications.model.SendNotificationToOrganizationMembersRequest;
 import com.crowdin.client.notifications.model.SendNotificationToProjectMemberRequest;
 
-public class NotificationsApi extends  CrowdinApi {
+public class NotificationsApi extends CrowdinApi {
 
     public NotificationsApi(Credentials credentials) {
         super(credentials);
@@ -27,8 +27,7 @@ public class NotificationsApi extends  CrowdinApi {
      * </ul>
      */
     public void sendNotificationToAuthenticatedUser(SendNotificationToAuthenticatedUserRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/notify", this.url);
-        this.httpClient.post(builtUrl, request, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -40,8 +39,7 @@ public class NotificationsApi extends  CrowdinApi {
      * </ul>
      */
     public void sendNotificationToProjectMembers(Long projectId, SendNotificationToProjectMemberRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/notify", this.url, projectId);
-        this.httpClient.post(builtUrl, request, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -51,8 +49,6 @@ public class NotificationsApi extends  CrowdinApi {
      * </ul>
      */
     public void sendNotificationToOrganizationMembers(SendNotificationToOrganizationMembersRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/notify", this.url);
-        this.httpClient.post(builtUrl, request, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

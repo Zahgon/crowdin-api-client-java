@@ -3,7 +3,9 @@ package com.crowdin.client.core.model;
 public class Credentials {
 
     private final String token;
+
     private final String organization;
+
     private String baseUrl;
 
     public Credentials(String token, String organization) {
@@ -18,15 +20,14 @@ public class Credentials {
     }
 
     public String getToken() {
-        return token;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getOrganization() {
-        return organization;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String getBaseUrl() {
-        return baseUrl;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

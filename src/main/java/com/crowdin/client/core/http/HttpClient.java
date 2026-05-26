@@ -6,7 +6,6 @@ import com.crowdin.client.core.http.impl.http.ApacheHttpClient;
 import com.crowdin.client.core.model.ClientConfig;
 import com.crowdin.client.core.model.EnumConverter;
 import com.crowdin.client.translations.model.ProjectBuildResponseList;
-
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Optional;
@@ -45,21 +44,6 @@ public interface HttpClient {
 
     @SuppressWarnings("unchecked")
     default String appendUrlParams(String url, Map<String, ? extends Optional> urlParams) {
-        if (urlParams.isEmpty()) {
-            return url;
-        }
-
-        return url + urlParams.entrySet().stream()
-                .filter(entry -> entry.getValue().isPresent())
-                .map(entry -> {
-                    Object value;
-                    if (entry.getValue().get() instanceof EnumConverter) {
-                        value = ((EnumConverter) entry.getValue().get()).to((Enum) entry.getValue().get());
-                    } else {
-                        value = entry.getValue().get().toString();
-                    }
-                    return entry.getKey() + "=" + value.toString();
-                })
-                .collect(Collectors.joining("&", "?", ""));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -29,7 +29,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -42,9 +41,13 @@ import java.util.Map;
 public class ApacheHttpClient implements HttpClient {
 
     private final Credentials credentials;
+
     private final JsonTransformer jsonTransformer;
+
     private final Map<String, ?> defaultHeaders;
+
     private ClientConfig.Host proxy;
+
     private ClientConfig.UsernamePasswordCredentials proxyCreds;
 
     private final CloseableHttpClient httpClient;
@@ -68,57 +71,45 @@ public class ApacheHttpClient implements HttpClient {
             requestConfig.setConnectTimeout(timeoutMs);
             requestConfig.setSocketTimeout(timeoutMs);
         }
-        this.httpClient = (proxy != null)
-            ? HttpClientBuilder.create()
-                .setProxy(new HttpHost(proxy.getHost(), proxy.getPort()))
-                .setDefaultRequestConfig(requestConfig.build())
-                .setDefaultCredentialsProvider((proxyCreds != null)
-                    ? new BasicCredentialsProvider() {{
-                            setCredentials(new AuthScope(proxy.getHost(), proxy.getPort()), new UsernamePasswordCredentials(proxyCreds.getUsername(), proxyCreds.getPassword()));
-                        }}
-                    : new BasicCredentialsProvider())
-                .build()
-            : HttpClientBuilder
-                .create()
-                .setDefaultRequestConfig(requestConfig.build())
-                .build();
+        this.httpClient = (proxy != null) ? HttpClientBuilder.create().setProxy(new HttpHost(proxy.getHost(), proxy.getPort())).setDefaultRequestConfig(requestConfig.build()).setDefaultCredentialsProvider((proxyCreds != null) ? new BasicCredentialsProvider() {
+
+            {
+                setCredentials(new AuthScope(proxy.getHost(), proxy.getPort()), new UsernamePasswordCredentials(proxyCreds.getUsername(), proxyCreds.getPassword()));
+            }
+        } : new BasicCredentialsProvider()).build() : HttpClientBuilder.create().setDefaultRequestConfig(requestConfig.build()).build();
     }
 
     @Override
     public <T> T get(String url, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, null, config, clazz, HttpGet.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T> T delete(String url, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, null, config, clazz, HttpDelete.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T> T head(String url, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, null, config, clazz, HttpHead.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T, V> T post(String url, V data, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, data, config, clazz, HttpPost.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T, V> T put(String url, V data, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, data, config, clazz, HttpPut.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public <T, V> T patch(String url, V data, HttpRequestConfig config, Class<T> clazz) throws HttpException, HttpBadRequestException {
-        return this.request(url, data, config, clazz, HttpPatch.METHOD_NAME);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    private <T, V> T request(String url,
-                             V data,
-                             HttpRequestConfig config,
-                             Class<T> clazz,
-                             String method) throws HttpException, HttpBadRequestException {
+    private <T, V> T request(String url, V data, HttpRequestConfig config, Class<T> clazz, String method) throws HttpException, HttpBadRequestException {
         HttpUriRequest request = this.buildRequest(method, url, data, config);
         String httpResponse = null;
         try (CloseableHttpResponse response = httpClient.execute(request)) {

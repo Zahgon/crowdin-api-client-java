@@ -1,14 +1,15 @@
 package com.crowdin.client.core.model;
 
 public enum Priority implements EnumConverter<Priority> {
+
     LOW, NORMAL, HIGH;
 
     public static Priority from(String value) {
-        return Priority.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Priority v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -9,7 +9,6 @@ import com.crowdin.client.core.model.*;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClientBuilder;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,17 +16,15 @@ import java.util.Map;
 public abstract class CrowdinApi {
 
     protected final HttpClient httpClient;
+
     protected final ClientConfig clientConfig;
+
     protected final String url;
+
     protected final String graphqlUrl;
 
     public CrowdinApi(Credentials credentials) {
-        this(credentials, ClientConfig.builder()
-                .httpClient(new ApacheHttpClient(credentials, new JacksonJsonTransformer(), Collections.emptyMap(), HttpClientBuilder
-                        .create()
-                        .setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(CookieSpecs.STANDARD).build())
-                        .build()))
-                .build());
+        this(credentials, ClientConfig.builder().httpClient(new ApacheHttpClient(credentials, new JacksonJsonTransformer(), Collections.emptyMap(), HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(CookieSpecs.STANDARD).build()).build())).build());
     }
 
     public CrowdinApi(Credentials credentials, ClientConfig clientConfig) {
@@ -38,11 +35,8 @@ public abstract class CrowdinApi {
         if (clientConfig.getIntegrationUserAgent() != null) {
             defaultHeaders.put("X-Crowdin-Integrations-User-Agent", clientConfig.getIntegrationUserAgent());
         }
-        JsonTransformer jsonTransformer = (clientConfig.getJsonTransformer() != null)
-                ? clientConfig.getJsonTransformer() : new JacksonJsonTransformer();
-        this.httpClient = (clientConfig.getHttpClient() != null)
-                ? clientConfig.getHttpClient()
-                : new ApacheHttpClient(credentials, jsonTransformer, defaultHeaders, clientConfig.getProxy(), clientConfig.getProxyCreds(), clientConfig.getHttpTimeoutMs());
+        JsonTransformer jsonTransformer = (clientConfig.getJsonTransformer() != null) ? clientConfig.getJsonTransformer() : new JacksonJsonTransformer();
+        this.httpClient = (clientConfig.getHttpClient() != null) ? clientConfig.getHttpClient() : new ApacheHttpClient(credentials, jsonTransformer, defaultHeaders, clientConfig.getProxy(), clientConfig.getProxyCreds(), clientConfig.getHttpTimeoutMs());
         this.clientConfig = clientConfig;
         if (credentials.getBaseUrl() != null) {
             if (credentials.getBaseUrl().endsWith("/")) {
@@ -71,8 +65,7 @@ public abstract class CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> graphql(GraphQLRequest request) {
-        GraphQLResponse response = this.graphql(request, GraphQLResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,6 +76,6 @@ public abstract class CrowdinApi {
      * </ul>
      */
     public <T> T graphql(GraphQLRequest request, Class<T> clazz) {
-        return this.httpClient.post(this.graphqlUrl, request, new HttpRequestConfig(), clazz);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

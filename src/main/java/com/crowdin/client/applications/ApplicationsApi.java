@@ -10,13 +10,12 @@ import com.crowdin.client.core.http.HttpRequestConfig;
 import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class ApplicationsApi extends CrowdinApi {
+
     public ApplicationsApi(Credentials credentials) {
         super(credentials);
     }
@@ -35,9 +34,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> getApplicationData(String applicationIdentifier, String path) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/%s/api/%s", this.url, applicationIdentifier, path);
-        ApplicationDataResponseObject response = this.httpClient.get(builtUrl, new HttpRequestConfig(), ApplicationDataResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -51,9 +48,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> updateOrRestoreApplicationData(String applicationIdentifier, String path, Map<String, Object> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/%s/api/%s", this.url, applicationIdentifier, path);
-        ApplicationDataResponseObject response = this.httpClient.put(builtUrl, request, new HttpRequestConfig(), ApplicationDataResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -67,9 +62,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> addApplicationData(String applicationIdentifier, String path, Map<String, Object> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/%s/api/%s", this.url, applicationIdentifier, path);
-        ApplicationDataResponseObject response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), ApplicationDataResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -81,8 +74,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteApplicationData(String applicationIdentifier, String path) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/%s/api/%s", this.url, applicationIdentifier, path);
-        this.httpClient.delete(builtUrl, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -96,9 +88,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> editApplicationData(String applicationIdentifier, String path, Map<String, Object> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/%s/api/%s", this.url, applicationIdentifier, path);
-        ApplicationDataResponseObject response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), ApplicationDataResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -110,9 +100,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ApplicationInstallation> getApplicationInstallation(String identifier) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/installations/%s", this.url, identifier);
-        ApplicationInstallationResponseObject response = this.httpClient.get(builtUrl, new HttpRequestConfig(), ApplicationInstallationResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -125,13 +113,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ApplicationInstallation> listApplicationInstallations(Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/installations", this.url);
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        ApplicationInstallationResponseList response = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), ApplicationInstallationResponseList.class);
-        return ApplicationInstallationResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -143,9 +125,7 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ApplicationInstallation> installApplication(InstallApplicationRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/installations", this.url);
-        ApplicationInstallationResponseObject response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), ApplicationInstallationResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -156,15 +136,11 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteApplicationInstallation(String identifier) throws HttpException, HttpBadRequestException {
-        this.deleteApplicationInstallation(identifier, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void deleteApplicationInstallation(String identifier, Boolean force) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "force", Optional.ofNullable(force)
-        );
-        String builtUrl = String.format("%s/applications/installations/%s", this.url, identifier);
-        this.httpClient.delete(builtUrl, new HttpRequestConfig(queryParams), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -176,8 +152,6 @@ public class ApplicationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ApplicationInstallation> editApplicationInstallation(String identifier, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/applications/installations/%s", this.url, identifier);
-        ApplicationInstallationResponseObject response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), ApplicationInstallationResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

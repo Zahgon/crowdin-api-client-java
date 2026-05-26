@@ -10,12 +10,12 @@ import com.crowdin.client.core.model.PatchRequest;
 import com.crowdin.client.core.model.ResponseList;
 import com.crowdin.client.core.model.ResponseObject;
 import com.crowdin.client.machinetranslationengines.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class MachineTranslationEnginesApi extends CrowdinApi {
+
     public MachineTranslationEnginesApi(Credentials credentials) {
         super(credentials);
     }
@@ -35,13 +35,7 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<MachineTranslation> listMts(Long groupId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "groupId", Optional.ofNullable(groupId),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        MachineTranslationResponseList machineTranslationResponseList = this.httpClient.get(this.url + "/mts", new HttpRequestConfig(queryParams), MachineTranslationResponseList.class);
-        return MachineTranslationResponseList.to(machineTranslationResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -52,8 +46,7 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<MachineTranslation> addMt(AddMachineTranslationRequest request) throws HttpException, HttpBadRequestException {
-        MachineTranslationResponseObject machineTranslationResponseObject = this.httpClient.post(this.url + "/mts", request, new HttpRequestConfig(), MachineTranslationResponseObject.class);
-        return ResponseObject.of(machineTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -65,8 +58,7 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<MachineTranslation> getMt(Long mtId) throws HttpException, HttpBadRequestException {
-        MachineTranslationResponseObject machineTranslationResponseObject = this.httpClient.get(this.url + "/mts/" + mtId, new HttpRequestConfig(), MachineTranslationResponseObject.class);
-        return ResponseObject.of(machineTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -76,7 +68,7 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteMt(Long mtId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/mts/" + mtId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -88,8 +80,7 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<MachineTranslation> editMt(Long mtId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        MachineTranslationResponseObject machineTranslationResponseObject = this.httpClient.patch(this.url + "/mts/" + mtId, request, new HttpRequestConfig(), MachineTranslationResponseObject.class);
-        return ResponseObject.of(machineTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -102,7 +93,6 @@ public class MachineTranslationEnginesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<MtTranslateResponse> translateViaMt(Long mtId, MtTranslateRequest request) throws HttpException, HttpBadRequestException {
-        MtTranslateResponseObject mtTranslateResponseObject = this.httpClient.post(this.url + "/mts/" + mtId + "/translations", request, new HttpRequestConfig(), MtTranslateResponseObject.class);
-        return ResponseObject.of(mtTranslateResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

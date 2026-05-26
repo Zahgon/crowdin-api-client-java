@@ -14,7 +14,6 @@ import com.crowdin.client.core.model.DownloadLinkResponseObject;
 import com.crowdin.client.core.model.PatchRequest;
 import com.crowdin.client.core.model.ResponseList;
 import com.crowdin.client.core.model.ResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -39,13 +38,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<CustomPlaceholder> listCustomPlaceholders(Long userId, Integer limit, final Integer offset) {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        String url = getAIPath(userId, "ai/settings/custom-placeholders");
-        CustomPlaceholderResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(queryParams), CustomPlaceholderResponseList.class);
-        return CustomPlaceholderResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -57,9 +50,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<CustomPlaceholder> addCustomPlaceholder(Long userId, CustomPlaceholderRequest request) {
-        String url = getAIPath(userId, "ai/settings/custom-placeholders");
-        CustomPlaceholderResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), CustomPlaceholderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -71,9 +62,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<CustomPlaceholder> getCustomPlaceholder(Long userId, long aiCustomPlaceholderId) {
-        String url = getAIPath(userId,"ai/settings/custom-placeholders/" + aiCustomPlaceholderId);
-        CustomPlaceholderResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), CustomPlaceholderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -85,8 +74,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public void deleteCustomPlaceholder(Long userId, long aiCustomPlaceholderId) {
-        String url = getAIPath(userId,"ai/settings/custom-placeholders/" + aiCustomPlaceholderId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -99,9 +87,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<CustomPlaceholder> editCustomPlaceholder(Long userId, long aiCustomPlaceholderId, List<PatchRequest> request) {
-        String url = getAIPath(userId,"ai/settings/custom-placeholders/" + aiCustomPlaceholderId);
-        CustomPlaceholderResponseObject response = this.httpClient.patch(url, request, new HttpRequestConfig(), CustomPlaceholderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -113,12 +99,9 @@ public class AIApi extends CrowdinApi {
      *     <li><a href="https://support.crowdin.com/developer/api/v2/#tag/AI/operation/api.users.ai.prompts.fine-tuning.datasets.get" target="_blank"><b>API Documentation</b></a></li>
      *     <li><a href="https://support.crowdin.com/developer/enterprise/api/v2/#tag/AI/operation/api.ai.prompts.fine-tuning.datasets.get" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
-     * */
-    public ResponseObject<FineTuningDatasetData> getFineTuningDatasetGenerationStatus(
-        final Long userId, final Long aiPromptId, final String jobIdentifier) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/fine-tuning/datasets/" + jobIdentifier);
-        FineTuningDatasetResponse response = this.httpClient.get(url, new HttpRequestConfig(), FineTuningDatasetResponse.class);
-        return ResponseObject.of(response.getData());
+     */
+    public ResponseObject<FineTuningDatasetData> getFineTuningDatasetGenerationStatus(final Long userId, final Long aiPromptId, final String jobIdentifier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -131,11 +114,8 @@ public class AIApi extends CrowdinApi {
      *     <li><a href="https://support.crowdin.com/developer/enterprise/api/v2/#tag/AI/operation/api.ai.prompts.fine-tuning.datasets.post" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseObject<FineTuningDatasetData> generateFineTuningDataset(
-        final Long userId, final Long aiPromptId, final FineTuningDatasetRequest request) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/fine-tuning/datasets");
-        FineTuningDatasetResponse response = this.httpClient.post(url, request, new HttpRequestConfig(), FineTuningDatasetResponse.class);
-        return ResponseObject.of(response.getData());
+    public ResponseObject<FineTuningDatasetData> generateFineTuningDataset(final Long userId, final Long aiPromptId, final FineTuningDatasetRequest request) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -148,11 +128,8 @@ public class AIApi extends CrowdinApi {
      *     <li><a href="https://support.crowdin.com/developer/enterprise/api/v2/#tag/AI/operation/api.ai.prompts.fine-tuning.jobs.events.getMany" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseList<FineTuningEvent> getFineTuningEventList(
-            final Long userId, final Long aiPromptId, final String jobIdentifier) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/fine-tuning/jobs/" +  jobIdentifier + "/events");
-        FineTuningEventResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(), FineTuningEventResponseList.class);
-        return FineTuningEventResponseList.to(responseList);
+    public ResponseList<FineTuningEvent> getFineTuningEventList(final Long userId, final Long aiPromptId, final String jobIdentifier) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -163,17 +140,8 @@ public class AIApi extends CrowdinApi {
      *     <li><a href="https://support.crowdin.com/developer/enterprise/api/v2/#tag/AI/operation/api.ai.prompts.fine-tuning.jobs.getMany" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseList<FineTuningJob> getFineTuningJobList(
-            final Long userId, final Integer limit, final Integer offset, final String statuses, final String orderBy) {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "statuses", Optional.ofNullable(statuses),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        String url = getAIPath(userId, "ai/prompts/fine-tuning/jobs");
-        FineTuningJobResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(queryParams), FineTuningJobResponseList.class);
-        return FineTuningJobResponseList.to(responseList);
+    public ResponseList<FineTuningJob> getFineTuningJobList(final Long userId, final Integer limit, final Integer offset, final String statuses, final String orderBy) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -187,9 +155,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FineTuningJob> createFineTuningJob(final Long userId, final Long aiPromptId, final FineTuningJobRequest request) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/fine-tuning/jobs");
-        FineTuningJobResponseObject responseObject = this.httpClient.post(url, request, new HttpRequestConfig(), FineTuningJobResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -203,9 +169,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FineTuningJob> getFineTuningJobStatus(final Long userId, final Long aiPromptId, final String jobIdentifier) {
-        String url = getAIPath(userId, "ai/prompts/" +  aiPromptId + "/fine-tuning/jobs/" + jobIdentifier);
-        FineTuningJobResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), FineTuningJobResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -219,9 +183,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FineTuningDatasetDownload> downloadFineTuningDataset(final Long userId, final long aiPromptId, final String jobIdentifier) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/fine-tuning/datasets/" + jobIdentifier + "/download");
-        FineTuningDatasetDownloadResponse response = this.httpClient.get(url, new HttpRequestConfig(), FineTuningDatasetDownloadResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -235,9 +197,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPrompt> cloneAiPrompt(final Long userId, final long aiPromptId, final AiPromptCloneRequest request) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/clones");
-        AiPromptResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), AiPromptResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -252,15 +212,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<AiPrompt> listAiPrompts(Long userId, Long projectId, String action, Integer limit, final Integer offset) {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "projectId", Optional.ofNullable(projectId),
-                "action", Optional.ofNullable(action),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        String url = getAIPath(userId, "ai/prompts");
-        AiPromptResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(queryParams), AiPromptResponseList.class);
-        return AiPromptResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -272,9 +224,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPrompt> addAiPrompt(Long userId, AiPromptAddRequest request) {
-        String url = getAIPath(userId, "ai/prompts");
-        AiPromptResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), AiPromptResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -287,9 +237,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPromptCompletionResponse.AiPromptCompletionData> generatePromptCompletion(Long userId, long aiPromptId, AiPromptCompletionRequest request) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/completions");
-        AiPromptCompletionResponse response = this.httpClient.post(url, request, new HttpRequestConfig(), AiPromptCompletionResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -302,9 +250,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPromptCompletionResponse.AiPromptCompletionData> getPromptCompletionStatus(Long userId, long aiPromptId, String completionId) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/completions/" + completionId);
-        AiPromptCompletionResponse response = this.httpClient.get(url, new HttpRequestConfig(), AiPromptCompletionResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -317,8 +263,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public void cancelPromptCompletion(Long userId, long aiPromptId, String completionId) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/completions/" + completionId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -331,9 +276,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadPromptCompletion(Long userId, long aiPromptId, String completionId) {
-        String url = getAIPath(userId, "ai/prompts/" + aiPromptId + "/completions/" + completionId + "/download");
-        DownloadLinkResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -345,9 +288,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPrompt> getAiPrompt(Long userId, long aiPromptId) {
-        String url = getAIPath(userId,"ai/prompts/" + aiPromptId);
-        AiPromptResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), AiPromptResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -359,8 +300,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public void deleteAiPrompt(Long userId, long aiPromptId) {
-        String url = getAIPath(userId,"ai/prompts/" + aiPromptId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -373,9 +313,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiPrompt> editAiPrompt(Long userId, long aiPromptId, List<PatchRequest> request) {
-        String url = getAIPath(userId,"ai/prompts/" + aiPromptId);
-        AiPromptResponseObject response = this.httpClient.patch(url, request, new HttpRequestConfig(), AiPromptResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -388,9 +326,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiReportGenerate> generateAiReport(final Long userId, final GenerateAiReportRequest request) throws HttpException, HttpBadRequestException {
-        String url = getAIPath(userId, "ai/reports");
-        AiReportGenerateResponse response = this.httpClient.post(url, request, new HttpRequestConfig(), AiReportGenerateResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -403,9 +339,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiReportGenerate> checkAiReportGenerationStatus(final Long userId, final String aiReportId) throws HttpException, HttpBadRequestException {
-        String url = getAIPath(userId, String.format("ai/reports/%s", aiReportId));
-        AiReportGenerateResponse response = this.httpClient.get(url, new HttpRequestConfig(), AiReportGenerateResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -418,9 +352,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadAiReport(final Long userId, final String reportId) throws HttpException, HttpBadRequestException {
-        String url = getAIPath(userId, String.format("ai/reports/%s/download", reportId));
-        DownloadLinkResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -432,9 +364,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiSetting> getAiSetting(Long userId) {
-        String url = getAIPath(userId, "ai/settings");
-        AiSettingResponse aiSettingResponse = this.httpClient.get(url, new HttpRequestConfig(), AiSettingResponse.class);
-        return ResponseObject.of(aiSettingResponse.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -446,9 +376,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiSetting> editAiSetting(Long userId, List<PatchRequest> request) {
-        String url = getAIPath(userId, "ai/settings");
-        AiSettingResponse aiSettingResponse = this.httpClient.patch(url, request, new HttpRequestConfig(), AiSettingResponse.class);
-        return ResponseObject.of(aiSettingResponse.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -462,13 +390,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<AiProvider> listAiProviders(final Long userId, final Integer limit, final Integer offset) {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        String url = getAIPath(userId, "ai/providers");
-        AiProviderResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(queryParams), AiProviderResponseList.class);
-        return AiProviderResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -481,9 +403,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiProvider> addAiProviders(final Long userId, final AiProviderRequest request) {
-        String url = getAIPath(userId, "ai/providers");
-        AiProviderResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), AiProviderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -496,9 +416,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiProvider> getAiProvider(final Long userId, final Long aiProviderId) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId);
-        AiProviderResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), AiProviderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -510,8 +428,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public void deleteAiProvider(final Long userId, final Long aiProviderId) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -525,9 +442,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiProvider> editAiProvider(final Long userId, final Long aiProviderId, List<PatchRequest> requests) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId);
-        AiProviderResponseObject response = this.httpClient.patch(url, requests, new HttpRequestConfig(), AiProviderResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -540,9 +455,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<AiProviderModel> listAiProviderModels(final Long userId, final Long aiProviderId) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/models");
-        AiProviderModelResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(), AiProviderModelResponseList.class);
-        return AiProviderModelResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -556,9 +469,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Map<String, Object>> createProxyChatCompletion(final Long userId, final Long aiProviderId, Map<String, Object> request) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/chat/completions");
-        ChatCompletionResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), ChatCompletionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -575,16 +486,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<AiSupportedModel> listSupportedAiProviderModels(Long userId, Integer limit, Integer offset, String providerType, Boolean enabled, String orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "providerType", Optional.ofNullable(providerType),
-                "enabled", Optional.ofNullable(enabled),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        String url = getAIPath(userId, "ai/providers/supported-models");
-        AiSupportedModelResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(queryParams), AiSupportedModelResponseList.class);
-        return AiSupportedModelResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -597,9 +499,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiTranslate> aiTranslateStrings(Long userId, AiTranslateRequest request) {
-        String url = getAIPath(userId, "ai/translate");
-        AiTranslateResponse response = this.httpClient.post(url, request, new HttpRequestConfig(), AiTranslateResponse.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -609,9 +509,7 @@ public class AIApi extends CrowdinApi {
      * @see <a href="https://support.crowdin.com/developer/api/v2/#tag/AI-Gateway/operation/api.ai.providers.gateway.crowdin.get" target="_blank"><b>API Documentation</b></a>
      */
     public ResponseObject<Map<String, Object>> aiGatewayGet(final Long userId, final Long aiProviderId, final String path) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/gateway/" + path);
-        ChatCompletionResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), ChatCompletionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -624,9 +522,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiFileTranslation> addAiFileTranslation(Long userId, AiFileTranslationAddRequest request) {
-        String url = getAIPath(userId, "ai/file-translations");
-        AiFileTranslationResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), AiFileTranslationResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -637,9 +533,7 @@ public class AIApi extends CrowdinApi {
      * @see <a href="https://support.crowdin.com/developer/api/v2/#tag/AI-Gateway/operation/api.ai.providers.gateway.crowdin.post" target="_blank"><b>API Documentation</b></a>
      */
     public ResponseObject<Map<String, Object>> aiGatewayPost(final Long userId, final Long aiProviderId, final String path, final Map<String, Object> request) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/gateway/" + path);
-        ChatCompletionResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), ChatCompletionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -652,9 +546,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AiFileTranslation> getAiFileTranslationStatus(Long userId, String jobIdentifier) {
-        String url = getAIPath(userId, "ai/file-translations/" + jobIdentifier);
-        AiFileTranslationResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), AiFileTranslationResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -665,9 +557,7 @@ public class AIApi extends CrowdinApi {
      * @see <a href="https://support.crowdin.com/developer/api/v2/#tag/AI-Gateway/operation/api.ai.providers.gateway.crowdin.put" target="_blank"><b>API Documentation</b></a>
      */
     public ResponseObject<Map<String, Object>> aiGatewayPut(final Long userId, final Long aiProviderId, final String path, final Map<String, Object> request) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/gateway/" + path);
-        ChatCompletionResponseObject response = this.httpClient.put(url, request, new HttpRequestConfig(), ChatCompletionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -679,8 +569,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public void cancelAiFileTranslation(Long userId, String jobIdentifier) {
-        String url = getAIPath(userId, "ai/file-translations/" + jobIdentifier);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -690,8 +579,7 @@ public class AIApi extends CrowdinApi {
      * @see <a href="https://support.crowdin.com/developer/api/v2/#tag/AI-Gateway/operation/api.ai.providers.gateway.crowdin.delete" target="_blank"><b>API Documentation</b></a>
      */
     public void aiGatewayDelete(final Long userId, final Long aiProviderId, final String path) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/gateway/" + path);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -704,9 +592,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadAiFileTranslation(Long userId, String jobIdentifier) {
-        String url = getAIPath(userId, "ai/file-translations/" + jobIdentifier + "/download");
-        DownloadLinkResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -719,9 +605,7 @@ public class AIApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadAiFileTranslationStrings(Long userId, String jobIdentifier) {
-        String url = getAIPath(userId, "ai/file-translations/" + jobIdentifier + "/translations");
-        DownloadLinkResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -732,13 +616,10 @@ public class AIApi extends CrowdinApi {
      * @see <a href="https://support.crowdin.com/developer/api/v2/#tag/AI-Gateway/operation/api.ai.providers.gateway.crowdin.patch" target="_blank"><b>API Documentation</b></a>
      */
     public ResponseObject<Map<String, Object>> aiGatewayPatch(final Long userId, final Long aiProviderId, final String path, final Map<String, Object> request) {
-        String url = getAIPath(userId, "ai/providers/" + aiProviderId + "/gateway/" + path);
-        ChatCompletionResponseObject response = this.httpClient.patch(url, request, new HttpRequestConfig(), ChatCompletionResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private String getAIPath(Long userId, String path) {
         return userId != null ? String.format("%s/users/%d/%s", this.url, userId, path) : String.format("%s/%s", this.url, path);
     }
 }
-

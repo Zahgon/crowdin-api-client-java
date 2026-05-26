@@ -12,11 +12,11 @@ public enum EntityType implements EnumConverter<EntityType> {
     STRING;
 
     public static EntityType from(String value) {
-        return EntityType.valueOf(value.toUpperCase());
-    };
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
     @Override
     public Object to(EntityType v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

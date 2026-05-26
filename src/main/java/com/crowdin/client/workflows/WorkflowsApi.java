@@ -17,12 +17,12 @@ import com.crowdin.client.workflows.model.WorkflowStepResponseObject;
 import com.crowdin.client.workflows.model.WorkflowTemplate;
 import com.crowdin.client.workflows.model.WorkflowTemplateResponseList;
 import com.crowdin.client.workflows.model.WorkflowTemplateResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class WorkflowsApi extends CrowdinApi {
+
     public WorkflowsApi(Credentials credentials) {
         super(credentials);
     }
@@ -39,8 +39,7 @@ public class WorkflowsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<WorkflowStep> listWorkflowSteps(Long projectId) throws HttpException, HttpBadRequestException {
-        WorkflowStepResponseList workflowStepResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/workflow-steps", new HttpRequestConfig(), WorkflowStepResponseList.class);
-        return WorkflowStepResponseList.to(workflowStepResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -52,8 +51,7 @@ public class WorkflowsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<WorkflowStep> getWorkflowStep(Long projectId, Long stepId) throws HttpException, HttpBadRequestException {
-        WorkflowStepResponseObject workflowStepResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/workflow-steps/" + stepId, new HttpRequestConfig(), WorkflowStepResponseObject.class);
-        return ResponseObject.of(workflowStepResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -70,15 +68,7 @@ public class WorkflowsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SourceString> listWorkflowStepStrings(Long projectId, Long stepId, String languageIds, List<OrderByField> orderBy, String status, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "languageIds", Optional.ofNullable(languageIds),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy)),
-                "status", Optional.ofNullable(status),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        SourceStringResponseList workflowStepStringsList = this.httpClient.get(this.url + "/projects/" + projectId + "/workflow-steps/" + stepId + "/strings", new HttpRequestConfig(queryParams), SourceStringResponseList.class);
-        return SourceStringResponseList.to(workflowStepStringsList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -91,13 +81,7 @@ public class WorkflowsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<WorkflowTemplate> listWorkflowTemplates(Long groupId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "groupId", Optional.ofNullable(groupId),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        WorkflowTemplateResponseList workflowTemplateResponseList = this.httpClient.get(this.url + "/workflow-templates", new HttpRequestConfig(queryParams), WorkflowTemplateResponseList.class);
-        return WorkflowTemplateResponseList.to(workflowTemplateResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -108,7 +92,6 @@ public class WorkflowsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<WorkflowTemplate> getWorkflowTemplate(Long templateId) throws HttpException, HttpBadRequestException {
-        WorkflowTemplateResponseObject workflowTemplateResponseObject = this.httpClient.get(this.url + "/workflow-templates/" + templateId, new HttpRequestConfig(), WorkflowTemplateResponseObject.class);
-        return ResponseObject.of(workflowTemplateResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

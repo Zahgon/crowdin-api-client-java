@@ -12,7 +12,6 @@ import com.crowdin.client.core.model.ResponseObject;
 import com.crowdin.client.dictionaries.model.Dictionary;
 import com.crowdin.client.dictionaries.model.DictionaryResponseList;
 import com.crowdin.client.dictionaries.model.DictionaryResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -37,12 +36,7 @@ public class DictionariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Dictionary> listDictionaries(Long projectId, String languageIds) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/dictionaries", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-            "languageIds", Optional.ofNullable(languageIds)
-        );
-        DictionaryResponseList response = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), DictionaryResponseList.class);
-        return DictionaryResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -56,10 +50,6 @@ public class DictionariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Dictionary> editDictionary(Long projectId, String languageId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/dictionaries/%s", this.url, projectId, languageId);
-        DictionaryResponseObject response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), DictionaryResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
-
 }

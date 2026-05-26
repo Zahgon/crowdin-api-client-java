@@ -10,12 +10,12 @@ public enum ExportQuotes implements EnumConverter<ExportQuotes> {
 
     @JsonCreator
     public static ExportQuotes from(String value) {
-        return ExportQuotes.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @JsonValue
     @Override
     public String to(ExportQuotes v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -13,12 +13,12 @@ import com.crowdin.client.webhooks.model.AddWebhookRequest;
 import com.crowdin.client.webhooks.model.Webhook;
 import com.crowdin.client.webhooks.model.WebhookResponseList;
 import com.crowdin.client.webhooks.model.WebhookResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class WebhooksApi extends CrowdinApi {
+
     public WebhooksApi(Credentials credentials) {
         super(credentials);
     }
@@ -38,12 +38,7 @@ public class WebhooksApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Webhook> listWebhooks(Long projectId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        WebhookResponseList webhookResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/webhooks", new HttpRequestConfig(queryParams), WebhookResponseList.class);
-        return WebhookResponseList.to(webhookResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -56,8 +51,7 @@ public class WebhooksApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Webhook> addWebhook(Long projectId, AddWebhookRequest request) throws HttpException, HttpBadRequestException {
-        WebhookResponseObject webhookResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/webhooks", request, new HttpRequestConfig(), WebhookResponseObject.class);
-        return ResponseObject.of(webhookResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -70,8 +64,7 @@ public class WebhooksApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Webhook> getWebhook(Long projectId, Long webhookId) throws HttpException, HttpBadRequestException {
-        WebhookResponseObject webhookResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/webhooks/" + webhookId, new HttpRequestConfig(), WebhookResponseObject.class);
-        return ResponseObject.of(webhookResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,7 +76,7 @@ public class WebhooksApi extends CrowdinApi {
      * </ul>
      */
     public void deleteWebhook(Long projectId, Long webhookId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/webhooks/" + webhookId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -97,7 +90,6 @@ public class WebhooksApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Webhook> editWebhook(Long projectId, Long webhookId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        WebhookResponseObject webhookResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/webhooks/" + webhookId, request, new HttpRequestConfig(), WebhookResponseObject.class);
-        return ResponseObject.of(webhookResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

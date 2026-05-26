@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.glossaries.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class GlossariesApi extends CrowdinApi {
+
     public GlossariesApi(Credentials credentials) {
         super(credentials);
     }
@@ -19,7 +19,6 @@ public class GlossariesApi extends CrowdinApi {
     public GlossariesApi(Credentials credentials, ClientConfig clientConfig) {
         super(credentials, clientConfig);
     }
-
 
     /**
      * @param projectId  project identifier
@@ -31,9 +30,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SearchConcordance> searchConcordance(Long projectId, SearchConcordanceRequest request) {
-        SearchConcordanceResponseList searchConcordanceResponseList =
-                this.httpClient.post(this.url + "/projects/" + projectId + "/glossaries/concordance", request, new HttpRequestConfig(), SearchConcordanceResponseList.class);
-        return SearchConcordanceResponseList.of(searchConcordanceResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -47,10 +44,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Concept> listConcepts(Long glossaryId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListConceptsParams params = new ListConceptsParams();
-        params.setLimit(limit);
-        params.setOffset(offset);
-        return listConcepts(glossaryId, params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -65,27 +59,11 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Concept> listConcepts(Long glossaryId, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListConceptsParams params = new ListConceptsParams();
-        params.setLimit(limit);
-        params.setOffset(offset);
-        params.setOrderByList(orderBy);
-        return listConcepts(glossaryId, params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Concept> listConcepts(Long glossaryId, ListConceptsParams params) throws HttpException, HttpBadRequestException {
-        ListConceptsParams query = Optional.ofNullable(params).orElse(new ListConceptsParams());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "orderBy", Optional.ofNullable(orderBy),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset())
-        );
-        ConceptResponseList conceptResponseList = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/concepts", new HttpRequestConfig(queryParams), ConceptResponseList.class);
-        return ConceptResponseList.to(conceptResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -98,8 +76,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Concept> getConcept(Long glossaryId, Long conceptId) throws HttpException, HttpBadRequestException {
-        ConceptResponseObject conceptResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/concepts/" + conceptId, new HttpRequestConfig(), ConceptResponseObject.class);
-        return ResponseObject.of(conceptResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -113,8 +90,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Concept> updateConcept(Long glossaryId, Long conceptId, Concept request) throws HttpException, HttpBadRequestException {
-        ConceptResponseObject conceptResponseObject = this.httpClient.put(this.url + "/glossaries/" + glossaryId + "/concepts/" + conceptId, request, new HttpRequestConfig(), ConceptResponseObject.class);
-        return ResponseObject.of(conceptResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,7 +102,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteConcept(Long glossaryId, Long conceptId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/glossaries/" + glossaryId + "/concepts/" + conceptId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -140,11 +116,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Glossary> listGlossaries(Long groupId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListGlossariesParams params = new ListGlossariesParams();
-        params.setGroupId(groupId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        return listGlossaries(params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -159,30 +131,11 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Glossary> listGlossaries(Long groupId, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListGlossariesParams params = new ListGlossariesParams();
-        params.setGroupId(groupId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        params.setOrderByList(orderBy);
-        return listGlossaries(params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Glossary> listGlossaries(ListGlossariesParams params) throws HttpException, HttpBadRequestException {
-        ListGlossariesParams query = Optional.ofNullable(params).orElse(new ListGlossariesParams());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "groupId", Optional.ofNullable(query.getGroupId()),
-                "userId", Optional.ofNullable(query.getUserId()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset()),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        GlossaryResponseList glossaryResponseList = this.httpClient.get(this.url + "/glossaries", new HttpRequestConfig(queryParams), GlossaryResponseList.class);
-        return GlossaryResponseList.to(glossaryResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -194,8 +147,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Glossary> addGlossary(AddGlossaryRequest request) throws HttpException, HttpBadRequestException {
-        GlossaryResponseObject glossaryResponseObject = this.httpClient.post(this.url + "/glossaries", request, new HttpRequestConfig(), GlossaryResponseObject.class);
-        return ResponseObject.of(glossaryResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -207,8 +159,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Glossary> getGlossary(Long glossaryId) throws HttpException, HttpBadRequestException {
-        GlossaryResponseObject glossaryResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId, new HttpRequestConfig(), GlossaryResponseObject.class);
-        return ResponseObject.of(glossaryResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -219,7 +170,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteGlossary(Long glossaryId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/glossaries/" + glossaryId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -232,8 +183,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Glossary> editGlossary(Long glossaryId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        GlossaryResponseObject glossaryResponseObject = this.httpClient.patch(this.url + "/glossaries/" + glossaryId, request, new HttpRequestConfig(), GlossaryResponseObject.class);
-        return ResponseObject.of(glossaryResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -246,8 +196,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GlossaryExportStatus> exportGlossary(Long glossaryId, ExportGlossaryRequest request) throws HttpException, HttpBadRequestException {
-        GlossaryExportStatusResponseObject glossaryExportStatusResponseObject = this.httpClient.post(this.url + "/glossaries/" + glossaryId + "/exports", request, new HttpRequestConfig(), GlossaryExportStatusResponseObject.class);
-        return ResponseObject.of(glossaryExportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -260,8 +209,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GlossaryExportStatus> checkGlossaryExportStatus(Long glossaryId, String exportId) throws HttpException, HttpBadRequestException {
-        GlossaryExportStatusResponseObject glossaryExportStatusResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/exports/" + exportId, new HttpRequestConfig(), GlossaryExportStatusResponseObject.class);
-        return ResponseObject.of(glossaryExportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -274,8 +222,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadGlossary(Long glossaryId, String exportId) throws HttpException, HttpBadRequestException {
-        DownloadLinkResponseObject downloadLinkResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/exports/" + exportId + "/download", new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(downloadLinkResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -288,8 +235,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GlossaryImportStatus> importGlossary(Long glossaryId, ImportGlossaryRequest request) throws HttpException, HttpBadRequestException {
-        GlossaryImportStatusResponseObject glossaryImportStatusResponseObject = this.httpClient.post(this.url + "/glossaries/" + glossaryId + "/imports", request, new HttpRequestConfig(), GlossaryImportStatusResponseObject.class);
-        return ResponseObject.of(glossaryImportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -302,8 +248,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GlossaryImportStatus> checkGlossaryImportStatus(Long glossaryId, String importId) throws HttpException, HttpBadRequestException {
-        GlossaryImportStatusResponseObject glossaryImportStatusResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/imports/" + importId, new HttpRequestConfig(), GlossaryImportStatusResponseObject.class);
-        return ResponseObject.of(glossaryImportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -321,14 +266,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Term> listTerms(Long glossaryId, Long userId, String languageId, Long conceptId, @Deprecated Long translationOfTermId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListTermsParams params = new ListTermsParams();
-        params.setUserId(userId);
-        params.setLanguageId(languageId);
-        params.setConceptId(conceptId);
-        params.setTranslationOfTermId(translationOfTermId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        return listTerms(glossaryId, params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -347,36 +285,11 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Term> listTerms(Long glossaryId, Long userId, String languageId, Long conceptId, @Deprecated Long translationOfTermId, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListTermsParams params = new ListTermsParams();
-        params.setUserId(userId);
-        params.setLanguageId(languageId);
-        params.setConceptId(conceptId);
-        params.setTranslationOfTermId(translationOfTermId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        params.setOrderByList(orderBy);
-        return listTerms(glossaryId, params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Term> listTerms(Long glossaryId, ListTermsParams params) throws HttpException, HttpBadRequestException {
-        ListTermsParams query = Optional.ofNullable(params).orElse(new ListTermsParams());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "orderBy", Optional.ofNullable(orderBy),
-                "userId", Optional.ofNullable(query.getUserId()),
-                "languageId", Optional.ofNullable(query.getLanguageId()),
-                "conceptId", Optional.ofNullable(query.getConceptId()),
-                "translationOfTermId", Optional.ofNullable(query.getTranslationOfTermId()),
-                "croql", Optional.ofNullable(query.getCroql()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset())
-        );
-        TermResponseList termResponseList = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/terms", new HttpRequestConfig(queryParams), TermResponseList.class);
-        return TermResponseList.to(termResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -389,8 +302,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Term> addTerm(Long glossaryId, AddTermRequest request) throws HttpException, HttpBadRequestException {
-        TermResponseObject termResponseObject = this.httpClient.post(this.url + "/glossaries/" + glossaryId + "/terms", request, new HttpRequestConfig(), TermResponseObject.class);
-        return ResponseObject.of(termResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -404,12 +316,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public void clearGlossary(Long glossaryId, String languageId, Long conceptId, @Deprecated Long translationOfTermId) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "languageId", Optional.ofNullable(languageId),
-                "conceptId", Optional.ofNullable(conceptId),
-                "translationOfTermId", Optional.ofNullable(translationOfTermId)
-        );
-        this.httpClient.delete(this.url + "/glossaries/" + glossaryId + "/terms", new HttpRequestConfig(queryParams), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -422,8 +329,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Term> getTerm(Long glossaryId, Long termId) throws HttpException, HttpBadRequestException {
-        TermResponseObject termResponseObject = this.httpClient.get(this.url + "/glossaries/" + glossaryId + "/terms/" + termId, new HttpRequestConfig(), TermResponseObject.class);
-        return ResponseObject.of(termResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -435,7 +341,7 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteTerm(Long glossaryId, Long termId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/glossaries/" + glossaryId + "/terms/" + termId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -449,7 +355,6 @@ public class GlossariesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Term> editTerm(Long glossaryId, Long termId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        TermResponseObject termResponseObject = this.httpClient.patch(this.url + "/glossaries/" + glossaryId + "/terms/" + termId, request, new HttpRequestConfig(), TermResponseObject.class);
-        return ResponseObject.of(termResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

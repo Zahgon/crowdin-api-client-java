@@ -3,14 +3,15 @@ package com.crowdin.client.projectsgroups.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum LanguageAccessPolicy implements EnumConverter<LanguageAccessPolicy> {
+
     OPEN, MODERATE;
 
     public static LanguageAccessPolicy from(String value) {
-        return LanguageAccessPolicy.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(LanguageAccessPolicy v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

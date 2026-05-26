@@ -17,11 +17,11 @@ public enum FieldType implements EnumConverter<FieldType> {
     URL;
 
     public static FieldType from(String value) {
-        return FieldType.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(FieldType v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

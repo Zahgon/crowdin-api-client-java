@@ -7,11 +7,11 @@ public enum TranslationMemoryFormat implements EnumConverter<TranslationMemoryFo
     TMX, CSV, XLSX;
 
     public static TranslationMemoryFormat from(String value) {
-        return TranslationMemoryFormat.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(TranslationMemoryFormat v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

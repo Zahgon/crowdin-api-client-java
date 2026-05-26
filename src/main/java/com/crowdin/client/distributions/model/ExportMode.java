@@ -7,11 +7,11 @@ public enum ExportMode implements EnumConverter<ExportMode> {
     DEFAULT, BUNDLE;
 
     public static ExportMode from(String value) {
-        return ExportMode.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(ExportMode v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

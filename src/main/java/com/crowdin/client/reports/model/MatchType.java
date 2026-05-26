@@ -3,6 +3,7 @@ package com.crowdin.client.reports.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum MatchType implements EnumConverter<MatchType> {
+
     PERFECT("perfect"),
     OPTION_100("100"),
     OPTION_99_82("99-82"),
@@ -21,16 +22,11 @@ public enum MatchType implements EnumConverter<MatchType> {
     }
 
     public static MatchType from(String value) {
-        for (MatchType val : MatchType.values()) {
-            if (val.value.equals(value)) {
-                return val;
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(MatchType v) {
-        return v.value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

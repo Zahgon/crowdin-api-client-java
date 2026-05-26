@@ -1,8 +1,8 @@
 package com.crowdin.client.core.model;
 
 public enum JsonFileType implements EnumConverter<JsonFileType> {
-    I18NEXT_JSON("i18next_json"),
-    NESTJS_I18N("nestjs_i18n");
+
+    I18NEXT_JSON("i18next_json"), NESTJS_I18N("nestjs_i18n");
 
     private String value;
 
@@ -11,11 +11,11 @@ public enum JsonFileType implements EnumConverter<JsonFileType> {
     }
 
     public static JsonFileType from(String value) {
-        return JsonFileType.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(JsonFileType v) {
-        return v.value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

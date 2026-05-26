@@ -3,6 +3,7 @@ package com.crowdin.client.tasks.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum Type implements EnumConverter<Type> {
+
     PROOFREAD(1), TRANSLATE(0);
 
     private final int val;
@@ -12,11 +13,11 @@ public enum Type implements EnumConverter<Type> {
     }
 
     public static Type from(String value) {
-        return value.equals("1") ? Type.PROOFREAD : Type.TRANSLATE;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Integer to(Type v) {
-        return v.val;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

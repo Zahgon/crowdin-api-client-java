@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.sourcestrings.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class SourceStringsApi extends CrowdinApi {
+
     public SourceStringsApi(Credentials credentials) {
         super(credentials);
     }
@@ -25,13 +25,11 @@ public class SourceStringsApi extends CrowdinApi {
      * @param uploadId upload identifier
      */
     public ResponseObject<UploadStringsProgress> uploadStringsStatus(Long projectId, String uploadId) throws HttpException, HttpBadRequestException {
-        UploadStringsProgressResponseObject stringsProgressResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/strings/uploads/" + uploadId, new HttpRequestConfig(), UploadStringsProgressResponseObject.class);
-        return ResponseObject.of(stringsProgressResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<UploadStringsProgress> uploadStrings(Long projectId, UploadStringsRequest request) throws HttpException, HttpBadRequestException {
-        UploadStringsProgressResponseObject stringsProgressResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/strings/uploads", request, new HttpRequestConfig(), UploadStringsProgressResponseObject.class);
-        return ResponseObject.of(stringsProgressResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -53,17 +51,7 @@ public class SourceStringsApi extends CrowdinApi {
      */
     @Deprecated
     public ResponseList<SourceString> listSourceStrings(Long projectId, Long fileId, Integer denormalizePlaceholders, Long branchId, String labelIds, String croql, String filter, String scope, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListSourceStringsParams params = ListSourceStringsParams.builder()
-                .fileId(fileId)
-                .denormalizePlaceholders(denormalizePlaceholders)
-                .branchId(branchId)
-                .labelIds(labelIds)
-                .croql(croql)
-                .filter(filter)
-                .scope(scope)
-                .limit(limit)
-                .offset(offset)
-                .build();
+        ListSourceStringsParams params = ListSourceStringsParams.builder().fileId(fileId).denormalizePlaceholders(denormalizePlaceholders).branchId(branchId).labelIds(labelIds).croql(croql).filter(filter).scope(scope).limit(limit).offset(offset).build();
         return listSourceStrings(projectId, params);
     }
 
@@ -77,26 +65,7 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SourceString> listSourceStrings(Long projectId, ListSourceStringsParams params) throws HttpException, HttpBadRequestException {
-        String orderBy = params.getOrderByList() != null
-                ? OrderByField.generateSortParam(params.getOrderByList())
-                : params.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "orderBy", Optional.ofNullable(orderBy),
-                "denormalizePlaceholders", Optional.ofNullable(params.getDenormalizePlaceholders()),
-                "labelIds", Optional.ofNullable(params.getLabelIds()),
-                "fileId", Optional.ofNullable(params.getFileId()),
-                "branchId", Optional.ofNullable(params.getBranchId()),
-                "directoryId", Optional.ofNullable(params.getDirectoryId()),
-                "taskId", Optional.ofNullable(params.getTaskId()),
-                "croql", Optional.ofNullable(params.getCroql()),
-                "filter", Optional.ofNullable(params.getFilter()),
-                "scope", Optional.ofNullable(params.getScope()),
-                "limit", Optional.ofNullable(params.getLimit()),
-                "offset", Optional.ofNullable(params.getOffset())
-        );
-        SourceStringResponseList sourceStringResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/strings", new HttpRequestConfig(queryParams), SourceStringResponseList.class);
-        return SourceStringResponseList.to(sourceStringResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -109,23 +78,19 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<SourceString> addSourceString(Long projectId, AddSourceStringRequest request) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/strings", request, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<SourceString> addSourcePluralString(Long projectId, AddSourcePluralStringRequest request) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/strings", request, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<SourceString> addSourceStringStringsBased(Long projectId, AddSourceStringStringsBasedRequest request) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/strings", request, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<SourceString> addSourcePluralStringStringsBased(Long projectId, AddSourcePluralStringStringsBasedRequest request) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/strings", request, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -138,8 +103,7 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<SourceString> getSourceString(Long projectId, Long stringId) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/strings/" + stringId, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -151,7 +115,7 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteSourceString(Long projectId, Long stringId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/strings/" + stringId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -165,8 +129,7 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<SourceString> editSourceString(Long projectId, Long stringId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        SourceStringResponseObject sourceStringResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/strings/" + stringId, request, new HttpRequestConfig(), SourceStringResponseObject.class);
-        return ResponseObject.of(sourceStringResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -179,8 +142,6 @@ public class SourceStringsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SourceString> stringBatchOperations(Long projectId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/projects/" + projectId + "/strings";
-        SourceStringResponseList sourceStringResponseList = this.httpClient.patch(url, request, new HttpRequestConfig(), SourceStringResponseList.class);
-        return SourceStringResponseList.to(sourceStringResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

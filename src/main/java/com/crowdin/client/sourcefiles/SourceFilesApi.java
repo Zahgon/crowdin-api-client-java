@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.sourcefiles.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class SourceFilesApi extends CrowdinApi {
+
     public SourceFilesApi(Credentials credentials) {
         super(credentials);
     }
@@ -32,13 +32,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Branch> listBranches(Long projectId, String name, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "name", Optional.ofNullable(name),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        BranchResponseList branchResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/branches", new HttpRequestConfig(queryParams), BranchResponseList.class);
-        return BranchResponseList.to(branchResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -54,14 +48,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Branch> listBranches(Long projectId, String name, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "name", Optional.ofNullable(name),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        BranchResponseList branchResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/branches", new HttpRequestConfig(queryParams), BranchResponseList.class);
-        return BranchResponseList.to(branchResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -74,8 +61,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Branch> addBranch(Long projectId, AddBranchRequest request) throws HttpException, HttpBadRequestException {
-        BranchResponseObject branchResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/branches", request, new HttpRequestConfig(), BranchResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -88,8 +74,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Branch> getBranch(Long projectId, Long branchId) throws HttpException, HttpBadRequestException {
-        BranchResponseObject branchResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId, new HttpRequestConfig(), BranchResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -101,7 +86,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteBranch(Long projectId, Long branchId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/branches/" + branchId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -115,8 +100,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Branch> editBranch(Long projectId, Long branchId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        BranchResponseObject branchResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/branches/" + branchId, request, new HttpRequestConfig(), BranchResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -134,16 +118,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Directory> listDirectories(Long projectId, Long branchId, Long directoryId, String filter, Object recursion, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "branchId", Optional.ofNullable(branchId),
-                "directoryId", Optional.ofNullable(directoryId),
-                "filter", Optional.ofNullable(filter),
-                "recursion", Optional.ofNullable(recursion),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        DirectoryResponseList directoryResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/directories", new HttpRequestConfig(queryParams), DirectoryResponseList.class);
-        return DirectoryResponseList.to(directoryResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -162,17 +137,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Directory> listDirectories(Long projectId, Long branchId, Long directoryId, String filter, Object recursion, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "branchId", Optional.ofNullable(branchId),
-                "directoryId", Optional.ofNullable(directoryId),
-                "filter", Optional.ofNullable(filter),
-                "recursion", Optional.ofNullable(recursion),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        DirectoryResponseList directoryResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/directories", new HttpRequestConfig(queryParams), DirectoryResponseList.class);
-        return DirectoryResponseList.to(directoryResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -185,8 +150,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Directory> addDirectory(Long projectId, AddDirectoryRequest request) throws HttpException, HttpBadRequestException {
-        DirectoryResponseObject post = this.httpClient.post(this.url + "/projects/" + projectId + "/directories", request, new HttpRequestConfig(), DirectoryResponseObject.class);
-        return ResponseObject.of(post.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -199,8 +163,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Directory> getDirectory(Long projectId, Long directoryId) throws HttpException, HttpBadRequestException {
-        DirectoryResponseObject directoryResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/directories/" + directoryId, new HttpRequestConfig(), DirectoryResponseObject.class);
-        return ResponseObject.of(directoryResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -212,7 +175,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteDirectory(Long projectId, Long directoryId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/directories/" + directoryId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -226,8 +189,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Directory> editDirectory(Long projectId, Long directoryId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        DirectoryResponseObject directoryResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/directories/" + directoryId, request, new HttpRequestConfig(), DirectoryResponseObject.class);
-        return ResponseObject.of(directoryResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -245,16 +207,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<? extends FileInfo> listFiles(Long projectId, Long branchId, Long directoryId, String filter, Object recursion, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "branchId", Optional.ofNullable(branchId),
-                "directoryId", Optional.ofNullable(directoryId),
-                "filter", Optional.ofNullable(filter),
-                "recursion", Optional.ofNullable(recursion),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        FileInfoResponseList fileInfoResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/files", new HttpRequestConfig(queryParams), FileInfoResponseList.class);
-        return FileInfoResponseList.to(fileInfoResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -273,17 +226,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<? extends FileInfo> listFiles(Long projectId, Long branchId, Long directoryId, String filter, Object recursion, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "branchId", Optional.ofNullable(branchId),
-                "directoryId", Optional.ofNullable(directoryId),
-                "filter", Optional.ofNullable(filter),
-                "recursion", Optional.ofNullable(recursion),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        FileInfoResponseList fileInfoResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/files", new HttpRequestConfig(queryParams), FileInfoResponseList.class);
-        return FileInfoResponseList.to(fileInfoResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -296,8 +239,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends FileInfo> addFile(Long projectId, AddFileRequest request) throws HttpException, HttpBadRequestException {
-        FileResponseObject fileResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/files", request, new HttpRequestConfig(), FileResponseObject.class);
-        return ResponseObject.of(fileResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -310,8 +252,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends FileInfo> getFile(Long projectId, Long fileId) throws HttpException, HttpBadRequestException {
-        FileResponseObject fileResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId, new HttpRequestConfig(), FileResponseObject.class);
-        return ResponseObject.of(fileResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -325,8 +266,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends FileInfo> updateOrRestoreFile(Long projectId, Long fileId, UpdateOrRestoreFileRequest request) throws HttpException, HttpBadRequestException {
-        FileResponseObject fileResponseObject = this.httpClient.put(this.url + "/projects/" + projectId + "/files/" + fileId, request, new HttpRequestConfig(), FileResponseObject.class);
-        return ResponseObject.of(fileResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -338,7 +278,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteFile(Long projectId, Long fileId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/files/" + fileId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -352,8 +292,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends FileInfo> editFile(Long projectId, Long fileId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        FileResponseObject fileResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/files/" + fileId, request, new HttpRequestConfig(), FileResponseObject.class);
-        return ResponseObject.of(fileResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -366,8 +305,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadFile(Long projectId, Long fileId) throws HttpException, HttpBadRequestException {
-        DownloadLinkResponseObject downloadLinkResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/download", new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(downloadLinkResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -382,12 +320,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<FileRevision> listFileRevisions(Long projectId, Long fileId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        FileRevisionResponseList fileRevisionResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/revisions", new HttpRequestConfig(queryParams), FileRevisionResponseList.class);
-        return FileRevisionResponseList.to(fileRevisionResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -401,8 +334,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FileRevision> getFileRevision(Long projectId, Long fileId, Long revisionId) throws HttpException, HttpBadRequestException {
-        FileRevisionResponseObject fileResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/revisions/" + revisionId, new HttpRequestConfig(), FileRevisionResponseObject.class);
-        return ResponseObject.of(fileResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -416,14 +348,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ReviewedStringsBuild> listReviewedSourceFilesBuilds(Long projectId, Long branchId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/strings/reviewed-builds", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-            "branchId", Optional.ofNullable(branchId),
-            "limit", Optional.ofNullable(limit),
-            "offset", Optional.ofNullable(offset)
-        );
-        ReviewedStringBuildResponseList reviewedStringBuildResponseList = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), ReviewedStringBuildResponseList.class);
-        return ReviewedStringBuildResponseList.to(reviewedStringBuildResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -435,9 +360,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReviewedStringsBuild> buildReviewedSourceFiles(Long projectId, BuildReviewedSourceFilesRequest request) {
-        String builtUrl = String.format("%s/projects/%d/strings/reviewed-builds", this.url, projectId);
-        ReviewedStringBuildResponseObject reviewedStringBuildResponseObject = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), ReviewedStringBuildResponseObject.class);
-        return ResponseObject.of(reviewedStringBuildResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -449,9 +372,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReviewedStringsBuild> checkReviewedSourceFilesBuildStatus(Long projectId, Long buildId) {
-        String builtUrl = String.format("%s/projects/%d/strings/reviewed-builds/%d", this.url, projectId, buildId);
-        ReviewedStringBuildResponseObject reviewedStringBuildResponseObject = this.httpClient.get(builtUrl, new HttpRequestConfig(), ReviewedStringBuildResponseObject.class);
-        return ResponseObject.of(reviewedStringBuildResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -463,9 +384,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadReviewedSourceFiles(Long projectId, Long buildId) {
-        String builtUrl = String.format("%s/projects/%d/strings/reviewed-builds/%d/download", this.url, projectId, buildId);
-        DownloadLinkResponseObject downloadLinkResponseObject = this.httpClient.get(builtUrl, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(downloadLinkResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -478,8 +397,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadFilePreview(Long projectId, Long fileId) throws HttpException, HttpBadRequestException {
-        DownloadLinkResponseObject downloadLinkResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/preview", new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(downloadLinkResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -494,12 +412,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<AssetReference> listAssetReferences(Long projectId, Long fileId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        AssetReferenceResponseList assetReferenceResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/references", new HttpRequestConfig(queryParams), AssetReferenceResponseList.class);
-        return AssetReferenceResponseList.to(assetReferenceResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -513,8 +426,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AssetReference> getAssetReference(Long projectId, Long fileId, Long referenceId) throws HttpException, HttpBadRequestException {
-        AssetReferenceResponseObject assetResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/references/" + referenceId, new HttpRequestConfig(), AssetReferenceResponseObject.class);
-        return ResponseObject.of(assetResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -528,8 +440,7 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<AssetReference> addAssetReference(Long projectId, Long fileId, AddAssetReferenceRequest request) throws HttpException, HttpBadRequestException {
-        AssetReferenceResponseObject post = this.httpClient.post(this.url + "/projects/" + projectId + "/files/" + fileId + "/references", request, new HttpRequestConfig(), AssetReferenceResponseObject.class);
-        return ResponseObject.of(post.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -542,6 +453,6 @@ public class SourceFilesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteAssetReference(Long projectId, Long fileId, Long referenceId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/files/" + fileId + "/references/" + referenceId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -19,11 +19,11 @@ import com.crowdin.client.translationstatus.model.QaCheckRevalidation;
 import com.crowdin.client.translationstatus.model.QaCheckRevalidationRequest;
 import com.crowdin.client.translationstatus.model.QaCheckRevalidationResponseObject;
 import com.crowdin.client.translationstatus.model.Validation;
-
 import java.util.Map;
 import java.util.Optional;
 
 public class TranslationStatusApi extends CrowdinApi {
+
     public TranslationStatusApi(Credentials credentials) {
         super(credentials);
     }
@@ -44,12 +44,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageProgress> getBranchProgress(Long projectId, Long branchId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        LanguageProgressResponseList languageProgressResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId + "/languages/progress", new HttpRequestConfig(queryParams), LanguageProgressResponseList.class);
-        return LanguageProgressResponseList.to(languageProgressResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -64,12 +59,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageProgress> getDirectoryProgress(Long projectId, Long directoryId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        LanguageProgressResponseList languageProgressResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/directories/" + directoryId + "/languages/progress", new HttpRequestConfig(queryParams), LanguageProgressResponseList.class);
-        return LanguageProgressResponseList.to(languageProgressResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -84,12 +74,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageProgress> getFileProgress(Long projectId, Long fileId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        LanguageProgressResponseList languageProgressResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/files/" + fileId + "/languages/progress", new HttpRequestConfig(queryParams), LanguageProgressResponseList.class);
-        return LanguageProgressResponseList.to(languageProgressResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -104,12 +89,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<FileBranchProgress> getLanguageProgress(Long projectId, String languageId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        FileProgressResponseList fileProgressResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/languages/" + languageId + "/progress", new HttpRequestConfig(queryParams), FileProgressResponseList.class);
-        return FileProgressResponseList.to(fileProgressResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -124,13 +104,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageProgress> getProjectProgress(Long projectId, Integer limit, Integer offset, String languageIds) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "languageIds", Optional.ofNullable(languageIds)
-        );
-        LanguageProgressResponseList languageProgressResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/languages/progress", new HttpRequestConfig(queryParams), LanguageProgressResponseList.class);
-        return LanguageProgressResponseList.to(languageProgressResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -146,15 +120,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<QaCheck> listQaCheckIssues(Long projectId, Integer limit, Integer offset, Category category, Validation validation) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "category", Optional.ofNullable(category),
-                "validation", Optional.ofNullable(validation)
-        );
-        String builtUrl = String.format("%s/projects/%d/qa-checks", this.url, projectId);
-        QaCheckResponseList qaCheckResponseList = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), QaCheckResponseList.class);
-        return QaCheckResponseList.to(qaCheckResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -167,9 +133,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<QaCheckRevalidation> getQaChecksRevalidationStatus(Long projectId, String revalidationId) throws HttpException, HttpBadRequestException {
-        QaCheckRevalidationResponseObject qaCheckRevalidationResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/qa-checks/revalidate/" + revalidationId, new HttpRequestConfig(), QaCheckRevalidationResponseObject.class);
-
-        return ResponseObject.of(qaCheckRevalidationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -182,9 +146,7 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<QaCheckRevalidation> revalidateQaChecks(Long projectId, QaCheckRevalidationRequest request) throws HttpException, HttpBadRequestException {
-        QaCheckRevalidationResponseObject qaCheckRevalidationResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/qa-checks/revalidate", request, new HttpRequestConfig(), QaCheckRevalidationResponseObject.class);
-
-        return ResponseObject.of(qaCheckRevalidationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -196,6 +158,6 @@ public class TranslationStatusApi extends CrowdinApi {
      * </ul>
      */
     public void cancelQaChecksRevalidation(Long projectId, String revalidationId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/qa-checks/revalidate/" + revalidationId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

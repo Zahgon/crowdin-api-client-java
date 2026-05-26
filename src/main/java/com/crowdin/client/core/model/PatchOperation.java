@@ -1,6 +1,7 @@
 package com.crowdin.client.core.model;
 
 public enum PatchOperation implements EnumConverter<PatchOperation> {
+
     ADD,
     REMOVE,
     REPLACE,
@@ -9,11 +10,11 @@ public enum PatchOperation implements EnumConverter<PatchOperation> {
     TEST;
 
     public static PatchOperation from(String value) {
-        return PatchOperation.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(PatchOperation value) {
-        return value.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

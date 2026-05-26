@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 
 public class CrowdinApiExceptionDeserializer extends JsonDeserializer<CrowdinApiException> {
@@ -22,21 +21,6 @@ public class CrowdinApiExceptionDeserializer extends JsonDeserializer<CrowdinApi
 
     @Override
     public CrowdinApiException deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
-        TreeNode treeNode = p.getCodec().readTree(p);
-        TreeNode errors = treeNode.get("errors");
-
-        if (errors != null) {
-            TreeNode firstElement = errors.get(0);
-
-            if (firstElement != null && firstElement.get("index") != null) {
-                return this.objectMapper.treeToValue(treeNode, HttpBatchBadRequestException.class);
-            }
-
-            return this.objectMapper.treeToValue(treeNode, HttpBadRequestException.class);
-        } else if (treeNode.get("error") != null) {
-            return this.objectMapper.treeToValue(treeNode, HttpException.class);
-        } else {
-            return HttpException.fromMessage(treeNode.toString(), null);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

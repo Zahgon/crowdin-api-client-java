@@ -9,11 +9,11 @@ import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.ClientConfig;
 import com.crowdin.client.core.model.Credentials;
 import com.crowdin.client.core.model.ResponseList;
-
 import java.util.Map;
 import java.util.Optional;
 
 public class ClientsApi extends CrowdinApi {
+
     public ClientsApi(Credentials credentials) {
         super(credentials);
     }
@@ -31,11 +31,6 @@ public class ClientsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Client> listClients(Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        ClientResponseList vendorResponseList = this.httpClient.get(this.url + "/clients", new HttpRequestConfig(queryParams), ClientResponseList.class);
-        return ClientResponseList.to(vendorResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

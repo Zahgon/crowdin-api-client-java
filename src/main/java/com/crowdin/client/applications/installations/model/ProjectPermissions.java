@@ -7,11 +7,11 @@ public enum ProjectPermissions implements EnumConverter<ProjectPermissions> {
     OWN, RESTRICTED;
 
     public static ProjectPermissions from(String value) {
-        return ProjectPermissions.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(ProjectPermissions value) {
-        return value.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

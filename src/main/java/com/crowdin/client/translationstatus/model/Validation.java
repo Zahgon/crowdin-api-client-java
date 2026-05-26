@@ -47,11 +47,11 @@ public enum Validation implements EnumConverter<Validation> {
     TERMS_CHECK;
 
     public static Validation from(String value) {
-        return Validation.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Validation v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-    }
+}

@@ -3,14 +3,15 @@ package com.crowdin.client.users.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum TranslatorRoleName implements EnumConverter<TranslatorRoleName> {
+
     TRANSLATOR, PROOFREADER, OWNER;
 
-    public static TranslatorRoleName from(String value){
-        return TranslatorRoleName.valueOf(value.toUpperCase());
+    public static TranslatorRoleName from(String value) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(TranslatorRoleName v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

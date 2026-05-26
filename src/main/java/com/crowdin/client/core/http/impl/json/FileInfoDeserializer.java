@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,16 +23,7 @@ public class FileInfoDeserializer extends JsonDeserializer<FileInfo> {
 
     @Override
     public FileInfo deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        TreeNode treeNode = p.getCodec().readTree(p);
-        Iterable<String> iterable = treeNode::fieldNames;
-        List<String> fields = StreamSupport
-            .stream(iterable.spliterator(), false)
-            .collect(Collectors.toList());
-        if (containsAny(fields, "revisionId", "parserVersion", "priority", "importOptions", "exportOptions", "excludedTargetLanguages", "createdAt", "updatedAt")) {
-            return this.objectMapper.readValue(treeNode.toString(), File.class);
-        } else {
-            return this.objectMapper.readValue(treeNode.toString(), FileInfo.class);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static boolean containsAny(List<String> fields, String... values) {

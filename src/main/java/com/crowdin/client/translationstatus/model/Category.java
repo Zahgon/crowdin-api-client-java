@@ -22,11 +22,11 @@ public enum Category implements EnumConverter<Category> {
     TERMS;
 
     public static Category from(String value) {
-        return Category.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Category v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

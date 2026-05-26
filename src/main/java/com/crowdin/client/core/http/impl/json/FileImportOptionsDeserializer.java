@@ -11,7 +11,6 @@ import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,19 +26,6 @@ public class FileImportOptionsDeserializer extends JsonDeserializer<ImportOption
 
     @Override
     public ImportOptions deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        TreeNode treeNode = p.getCodec().readTree(p);
-        Iterable<String> iterable = treeNode::fieldNames;
-        List<String> fields = StreamSupport
-                .stream(iterable.spliterator(), false)
-                .collect(Collectors.toList());
-        if (fields.contains("cleanTagsAggressively")) {
-            return this.objectMapper.readValue(treeNode.toString(), DocxFileImportOptions.class);
-        } else if (fields.contains("firstLineContainsHeader")) {
-            return this.objectMapper.readValue(treeNode.toString(), SpreadsheetFileImportOptions.class);
-        } else if (fields.contains("translateContent")) {
-            return this.objectMapper.readValue(treeNode.toString(), XmlFileImportOptions.class);
-        } else {
-            return this.objectMapper.readValue(treeNode.toString(), OtherFileImportOptions.class);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

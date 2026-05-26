@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.stringtranslations.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class StringTranslationsApi extends CrowdinApi {
+
     public StringTranslationsApi(Credentials credentials) {
         super(credentials);
     }
@@ -30,8 +30,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public AlignTranslationResponse alignTranslation(Long projectId, AlignTranslationRequest request) {
-        String url = this.url + "/projects/" + projectId + "/translations/alignment";
-        return this.httpClient.post(url, request, new HttpRequestConfig(), AlignTranslationResponse.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -51,16 +50,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Approval> listTranslationApprovals(Long projectId, Long fileId, Long stringId, String languageId, Long translationId, String labelIds, String excludeLabelIds, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListTranslationApprovalsOptions options = new ListTranslationApprovalsOptions();
-        options.setFileId(fileId);
-        options.setStringId(stringId);
-        options.setLanguageId(languageId);
-        options.setTranslationId(translationId);
-        options.setLabelIds(labelIds);
-        options.setExcludeLabelIds(excludeLabelIds);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listTranslationApprovals(projectId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -81,39 +71,11 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Approval> listTranslationApprovals(Long projectId, Long fileId, Long stringId, String languageId, Long translationId, String labelIds, String excludeLabelIds, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListTranslationApprovalsOptions options = new ListTranslationApprovalsOptions();
-        options.setFileId(fileId);
-        options.setStringId(stringId);
-        options.setLanguageId(languageId);
-        options.setTranslationId(translationId);
-        options.setLabelIds(labelIds);
-        options.setExcludeLabelIds(excludeLabelIds);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        options.setOrderByList(orderBy);
-        return listTranslationApprovals(projectId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Approval> listTranslationApprovals(Long projectId, ListTranslationApprovalsOptions options) throws HttpException, HttpBadRequestException {
-        ListTranslationApprovalsOptions query = Optional.ofNullable(options).orElse(new ListTranslationApprovalsOptions());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "fileId", Optional.ofNullable(query.getFileId()),
-                "labelIds", Optional.ofNullable(query.getLabelIds()),
-                "excludeLabelIds", Optional.ofNullable(query.getExcludeLabelIds()),
-                "stringId", Optional.ofNullable(query.getStringId()),
-                "languageId", Optional.ofNullable(query.getLanguageId()),
-                "translationId", Optional.ofNullable(query.getTranslationId()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset()),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        ApprovalResponseList approvalResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/approvals", new HttpRequestConfig(queryParams), ApprovalResponseList.class);
-        return ApprovalResponseList.to(approvalResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,8 +88,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Approval> addApproval(Long projectId, AddApprovalRequest request) throws HttpException, HttpBadRequestException {
-        ApprovalResponseObject approvalResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/approvals", request, new HttpRequestConfig(), ApprovalResponseObject.class);
-        return ResponseObject.of(approvalResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -140,8 +101,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Approval> getApproval(Long projectId, Long approvalId) throws HttpException, HttpBadRequestException {
-        ApprovalResponseObject storageResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/approvals/" + approvalId, new HttpRequestConfig(), ApprovalResponseObject.class);
-        return ResponseObject.of(storageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -153,10 +113,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public void removeStringApprovals(Long projectId, Long stringId) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.of(stringId)
-        );
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/approvals", new HttpRequestConfig(queryParams), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -168,7 +125,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public void removeApproval(Long projectId, Long approvalId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/approvals/" + approvalId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -179,9 +136,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Approval> approvalBatchOperations(Long projectId, List<PatchRequest> request) {
-        String url = this.url + "/projects/" + projectId + "/approvals";
-        ApprovalResponseList response = this.httpClient.patch(url, request, new HttpRequestConfig(), ApprovalResponseList.class);
-        return ApprovalResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -192,9 +147,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringTranslation> translationBatchOperations(Long projectId, List<PatchRequest> request) {
-        String url = this.url + "/projects/" + projectId + "/translations";
-        StringTranslationResponseList response = this.httpClient.patch(url, request, new HttpRequestConfig(), StringTranslationResponseList.class);
-        return StringTranslationResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -216,17 +169,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageTranslations> listLanguageTranslations(Long projectId, String languageId, String stringIds, String labelIds, Long fileId, Long branchId, Long directoryId, String croql, Integer denormalizePlaceholders, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListLanguageTranslationsOptions options = new ListLanguageTranslationsOptions();
-        options.setStringIds(stringIds);
-        options.setLabelIds(labelIds);
-        options.setFileId(fileId);
-        options.setBranchId(branchId);
-        options.setDirectoryId(directoryId);
-        options.setCroql(croql);
-        options.setDenormalizePlaceholders(BooleanInt.fromInt(denormalizePlaceholders));
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listLanguageTranslations(projectId, languageId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -249,38 +192,11 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<LanguageTranslations> listLanguageTranslations(Long projectId, String languageId, String stringIds, String labelIds, Long fileId, Long branchId, Long directoryId, String croql, Integer denormalizePlaceholders, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListLanguageTranslationsOptions options = new ListLanguageTranslationsOptions();
-        options.setStringIds(stringIds);
-        options.setLabelIds(labelIds);
-        options.setFileId(fileId);
-        options.setBranchId(branchId);
-        options.setDirectoryId(directoryId);
-        options.setCroql(croql);
-        options.setDenormalizePlaceholders(BooleanInt.fromInt(denormalizePlaceholders));
-        options.setLimit(limit);
-        options.setOffset(offset);
-        options.setOrderByList(orderBy);
-        return listLanguageTranslations(projectId, languageId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<LanguageTranslations> listLanguageTranslations(Long projectId, String languageId, ListLanguageTranslationsOptions options) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/languages/%s/translations", this.url, projectId, languageId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-            "stringIds", Optional.ofNullable(options.getStringIds()),
-            "labelIds", Optional.ofNullable(options.getLabelIds()),
-            "fileId", Optional.ofNullable(options.getFileId()),
-            "branchId", Optional.ofNullable(options.getBranchId()),
-            "directoryId", Optional.ofNullable(options.getDirectoryId()),
-            "passedWorkflow", Optional.ofNullable(options.getPassedWorkflow()),
-            "minApprovalCount", Optional.ofNullable(options.getMinApprovalCount()),
-            "croql", Optional.ofNullable(options.getCroql()),
-            "denormalizePlaceholders", Optional.ofNullable(options.getDenormalizePlaceholders()),
-            "limit", Optional.ofNullable(options.getLimit()),
-            "offset", Optional.ofNullable(options.getOffset()),
-            "orderBy", Optional.ofNullable(OrderByField.generateSortParam(options.getOrderByList()))
-        );
-        LanguageTranslationsResponseList languageTranslationsResponseList = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), LanguageTranslationsResponseList.class);
-        return LanguageTranslationsResponseList.to(languageTranslationsResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -296,12 +212,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringTranslation> listStringTranslations(Long projectId, Long stringId, String languageId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListStringTranslationsOptions options = new ListStringTranslationsOptions();
-        options.setStringId(stringId);
-        options.setLanguageId(languageId);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listStringTranslations(projectId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -318,32 +229,11 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringTranslation> listStringTranslations(Long projectId, Long stringId, String languageId, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListStringTranslationsOptions options = new ListStringTranslationsOptions();
-        options.setStringId(stringId);
-        options.setLanguageId(languageId);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        options.setOrderByList(orderBy);
-        return listStringTranslations(projectId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<StringTranslation> listStringTranslations(Long projectId, ListStringTranslationsOptions options) throws HttpException, HttpBadRequestException {
-        ListStringTranslationsOptions query = Optional.ofNullable(options).orElse(new ListStringTranslationsOptions());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.ofNullable(query.getStringId()),
-                "languageId", Optional.ofNullable(query.getLanguageId()),
-                "denormalizePlaceholders", Optional.ofNullable(query.getDenormalizePlaceholders()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset()),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        StringTranslationResponseList stringTranslationResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/translations", new HttpRequestConfig(queryParams), StringTranslationResponseList.class);
-        return StringTranslationResponseList.to(stringTranslationResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -356,8 +246,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringTranslation> addTranslation(Long projectId, AddStringTranslationRequest request) throws HttpException, HttpBadRequestException {
-        StringTranslationResponseObject stringTranslationResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/translations", request, new HttpRequestConfig(), StringTranslationResponseObject.class);
-        return ResponseObject.of(stringTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -370,11 +259,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteStringTranslations(Long projectId, Long stringId, String languageId) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.of(stringId),
-                "languageId", Optional.ofNullable(languageId)
-        );
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/translations", new HttpRequestConfig(queryParams), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -387,8 +272,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringTranslation> getStringTranslation(Long projectId, Long translationId) throws HttpException, HttpBadRequestException {
-        StringTranslationResponseObject stringTranslationResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/translations/" + translationId, new HttpRequestConfig(), StringTranslationResponseObject.class);
-        return ResponseObject.of(stringTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -400,7 +284,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteStringTranslation(Long projectId, Long translationId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/translations/" + translationId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -413,8 +297,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StringTranslation> restoreStringTranslation(Long projectId, Long translationId) throws HttpException, HttpBadRequestException {
-        StringTranslationResponseObject stringTranslationResponseObject = this.httpClient.put(this.url + "/projects/" + projectId + "/translations/" + translationId, null, new HttpRequestConfig(), StringTranslationResponseObject.class);
-        return ResponseObject.of(stringTranslationResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -433,30 +316,11 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Vote> listTranslationVotes(Long projectId, Long stringId, String languageId, Long translationId, String labelIds, String excludeLabelIds, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListTranslationVotesOptions options = new ListTranslationVotesOptions();
-        options.setStringId(stringId);
-        options.setLanguageId(languageId);
-        options.setTranslationId(translationId);
-        options.setLabelIds(labelIds);
-        options.setExcludeLabelIds(excludeLabelIds);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listTranslationVotes(projectId, options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Vote> listTranslationVotes(Long projectId, ListTranslationVotesOptions options) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "stringId", Optional.ofNullable(options.getStringId()),
-                "languageId", Optional.ofNullable(options.getLanguageId()),
-                "translationId", Optional.ofNullable(options.getTranslationId()),
-                "fileId", Optional.ofNullable(options.getFileId()),
-                "labelIds", Optional.ofNullable(options.getLabelIds()),
-                "excludeLabelIds", Optional.ofNullable(options.getExcludeLabelIds()),
-                "limit", Optional.ofNullable(options.getLimit()),
-                "offset", Optional.ofNullable(options.getOffset())
-        );
-        VoteResponseList voteResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/votes", new HttpRequestConfig(queryParams), VoteResponseList.class);
-        return VoteResponseList.to(voteResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -469,8 +333,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Vote> addVote(Long projectId, AddVoteRequest request) throws HttpException, HttpBadRequestException {
-        VoteResponseObject voteResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/votes", request, new HttpRequestConfig(), VoteResponseObject.class);
-        return ResponseObject.of(voteResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -483,8 +346,7 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Vote> getVote(Long projectId, Long voteId) throws HttpException, HttpBadRequestException {
-        VoteResponseObject voteResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/votes/" + voteId, new HttpRequestConfig(), VoteResponseObject.class);
-        return ResponseObject.of(voteResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -496,6 +358,6 @@ public class StringTranslationsApi extends CrowdinApi {
      * </ul>
      */
     public void cancelVote(Long projectId, Long voteId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/votes/" + voteId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -6,13 +6,13 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.teams.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TeamsApi extends CrowdinApi {
+
     public TeamsApi(Credentials credentials) {
         super(credentials);
     }
@@ -31,11 +31,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<GroupTeam> listGroupTeams(Long groupId, String orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        GroupTeamResponseList response = this.httpClient.get(this.url + "/groups/" + groupId + "/teams", new HttpRequestConfig(queryParams), GroupTeamResponseList.class);
-        return GroupTeamResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -47,16 +43,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<GroupTeam> listGroupTeams(ListGroupTeamsParams params) throws HttpException, HttpBadRequestException {
-        if (params == null) {
-            throw new NullPointerException("params is null");
-        }
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(params.getOrderByList()))
-        );
-
-        GroupTeamResponseList response = this.httpClient.get(this.url + "/groups/" + params.getGroupId() + "/teams", new HttpRequestConfig(queryParams), GroupTeamResponseList.class);
-        return GroupTeamResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -69,8 +56,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<GroupTeam> updateGroupTeams(Long groupId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        GroupTeamResponseList response = this.httpClient.patch(this.url + "/groups/" + groupId + "/teams", request, new HttpRequestConfig(), GroupTeamResponseList.class);
-        return GroupTeamResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,8 +69,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupTeam> getGroupTeam(Long groupId, Long teamId) throws HttpException, HttpBadRequestException {
-        GroupTeamResponseObject response = this.httpClient.get(this.url + "/groups/" + groupId + "/teams/" + teamId, new HttpRequestConfig(), GroupTeamResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -96,7 +81,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ProjectTeamResources addTeamToProject(Long projectId, AddTeamToProjectRequest request) throws HttpException, HttpBadRequestException {
-        return this.httpClient.post(this.url + "/projects/" + projectId + "/teams", request, new HttpRequestConfig(), ProjectTeamResources.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -108,12 +93,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Team> listTeams(Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        TeamResponseList teamResponseList = this.httpClient.get(this.url + "/teams", new HttpRequestConfig(queryParams), TeamResponseList.class);
-        return TeamResponseList.to(teamResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,13 +106,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Team> listTeams(Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        TeamResponseList teamResponseList = this.httpClient.get(this.url + "/teams", new HttpRequestConfig(queryParams), TeamResponseList.class);
-        return TeamResponseList.to(teamResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -143,34 +117,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Team> listTeams(ListTeamsParams params) throws HttpException, HttpBadRequestException {
-        ListTeamsParams query = Optional.ofNullable(params).orElse(new ListTeamsParams());
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "search", Optional.ofNullable(query.getSearch()),
-                "projectIds", Optional.ofNullable(
-                        query.getProjectIds() == null ? null : query.getProjectIds().stream()
-                                .map(String::valueOf)
-                                .collect(Collectors.joining(","))
-                ),
-                "projectRoles", Optional.ofNullable(
-                        query.getProjectRoles() == null ? null : query.getProjectRoles().stream()
-                                .map(projectRole -> projectRole.to(projectRole))
-                                .collect(Collectors.joining(","))
-                ),
-                "languageIds", Optional.ofNullable(
-                        query.getLanguageIds() == null ? null : String.join(",", query.getLanguageIds())
-                ),
-                "groupIds", Optional.ofNullable(
-                        query.getGroupIds() == null ? null : query.getGroupIds().stream()
-                        .map(String::valueOf)
-                        .collect(Collectors.joining(","))
-                ),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(query.getOrderBy())),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset())
-        );
-        TeamResponseList teamResponseList = this.httpClient.get(this.url + "/teams", new HttpRequestConfig(queryParams), TeamResponseList.class);
-        return TeamResponseList.to(teamResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -181,8 +128,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Team> addTeam(AddTeamRequest request) throws HttpException, HttpBadRequestException {
-        TeamResponseObject teamResponseObject = this.httpClient.post(this.url + "/teams", request, new HttpRequestConfig(), TeamResponseObject.class);
-        return ResponseObject.of(teamResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -193,8 +139,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Team> getTeam(Long teamId) throws HttpException, HttpBadRequestException {
-        TeamResponseObject teamResponseObject = this.httpClient.get(this.url + "/teams/" + teamId, new HttpRequestConfig(), TeamResponseObject.class);
-        return ResponseObject.of(teamResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -204,7 +149,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteTeam(Long teamId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/teams/" + teamId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -216,8 +161,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Team> editTeam(Long teamId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        TeamResponseObject teamResponseObject = this.httpClient.patch(this.url + "/teams/" + teamId, request, new HttpRequestConfig(), TeamResponseObject.class);
-        return ResponseObject.of(teamResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -230,12 +174,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<TeamMember> listTeamMembers(Long teamId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        TeamMemberResponseList teamMemberResponseList = this.httpClient.get(this.url + "/teams/" + teamId + "/members", new HttpRequestConfig(queryParams), TeamMemberResponseList.class);
-        return TeamMemberResponseList.to(teamMemberResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -247,8 +186,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public AddTeamMembersResponse addTeamMembers(Long teamId, AddTeamMembersRequest request) throws HttpException, HttpBadRequestException {
-        AddTeamMembersResponseInternal addTeamMembersResponseInternal = this.httpClient.post(this.url + "/teams/" + teamId + "/members", request, new HttpRequestConfig(), AddTeamMembersResponseInternal.class);
-        return AddTeamMembersResponseInternal.to(addTeamMembersResponseInternal);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -258,7 +196,7 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteAllTeamMembers(Long teamId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/teams/" + teamId + "/members", new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -269,6 +207,6 @@ public class TeamsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteTeamMember(Long teamId, Long memberId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/teams/" + teamId + "/members/" + memberId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -15,7 +15,6 @@ import com.crowdin.client.screenshots.model.Screenshot;
 import com.crowdin.client.screenshots.model.ScreenshotResponseList;
 import com.crowdin.client.sourcestrings.model.SourceString;
 import com.crowdin.client.sourcestrings.model.SourceStringResponseList;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -43,14 +42,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Label> listLabels(Long projectId, Integer limit, Integer offset, BooleanInt isSystem) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-            "limit", Optional.ofNullable(limit),
-            "offset", Optional.ofNullable(offset),
-            "isSystem", Optional.ofNullable(isSystem)
-        );
-        LabelResponseList labelResponseList = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), LabelResponseList.class);
-        return LabelResponseList.to(labelResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -66,15 +58,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Label> listLabels(Long projectId, Integer limit, Integer offset, BooleanInt isSystem, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels", this.url, projectId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset),
-                "isSystem", Optional.ofNullable(isSystem),
-                "orderBy", Optional.ofNullable(OrderByField.generateSortParam(orderBy))
-        );
-        LabelResponseList labelResponseList = this.httpClient.get(builtUrl, new HttpRequestConfig(queryParams), LabelResponseList.class);
-        return LabelResponseList.to(labelResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -87,9 +71,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Label> addLabel(Long projectId, AddLabelRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels", this.url, projectId);
-        LabelResponseObject response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), LabelResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -102,9 +84,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Label> getLabel(Long projectId, Long labelId) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d", this.url, projectId, labelId);
-        LabelResponseObject response = this.httpClient.get(builtUrl, new HttpRequestConfig(), LabelResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -116,8 +96,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteLabel(Long projectId, Long labelId) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d", this.url, projectId, labelId);
-        this.httpClient.delete(builtUrl, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -131,9 +110,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Label> editLabel(Long projectId, Long labelId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d", this.url, projectId, labelId);
-        LabelResponseObject response = this.httpClient.patch(builtUrl, request, new HttpRequestConfig(), LabelResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -147,9 +124,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SourceString> assignLabelToStrings(Long projectId, Long labelId, LabelToStringsRequest request) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d/strings", this.url, projectId, labelId);
-        SourceStringResponseList response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), SourceStringResponseList.class);
-        return SourceStringResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -163,10 +138,7 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<SourceString> unassignLabelFromStrings(Long projectId, Long labelId, List<Long> stringIds) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d/strings", this.url, projectId, labelId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams("stringIds", Optional.ofNullable(stringIds == null ? null : stringIds.stream().map(String::valueOf).collect(Collectors.joining(","))));
-        SourceStringResponseList response = this.httpClient.delete(builtUrl, new HttpRequestConfig(queryParams), SourceStringResponseList.class);
-        return SourceStringResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -179,10 +151,8 @@ public class LabelsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.projects.labels.screenshots.post" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseList<Screenshot> assignLabelToScreenshots(Long projectId, Long labelId, LabelToScreenshotsRequest request) throws HttpException, HttpBadRequestException{
-        String builtUrl = String.format("%s/projects/%d/labels/%d/screenshots", this.url, projectId, labelId);
-        ScreenshotResponseList response = this.httpClient.post(builtUrl, request, new HttpRequestConfig(), ScreenshotResponseList.class);
-        return ScreenshotResponseList.to(response);
+    public ResponseList<Screenshot> assignLabelToScreenshots(Long projectId, Long labelId, LabelToScreenshotsRequest request) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -195,9 +165,6 @@ public class LabelsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Screenshot> unassignLabelFromScreenshots(Long projectId, Long labelId, List<Long> screenshotIds) throws HttpException, HttpBadRequestException {
-        String builtUrl = String.format("%s/projects/%d/labels/%d/screenshots", this.url, projectId, labelId);
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams("screenshotIds", Optional.ofNullable(screenshotIds == null ? null : screenshotIds.stream().map(String::valueOf).collect(Collectors.joining(","))));
-        ScreenshotResponseList response = this.httpClient.delete(builtUrl, new HttpRequestConfig(queryParams), ScreenshotResponseList.class);
-        return ScreenshotResponseList.to(response);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

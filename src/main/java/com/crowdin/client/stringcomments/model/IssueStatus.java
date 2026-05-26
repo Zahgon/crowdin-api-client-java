@@ -3,14 +3,15 @@ package com.crowdin.client.stringcomments.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum IssueStatus implements EnumConverter<IssueStatus> {
+
     RESOLVED, UNRESOLVED;
 
     public static IssueStatus from(String value) {
-        return IssueStatus.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(IssueStatus v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

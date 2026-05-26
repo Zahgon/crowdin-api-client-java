@@ -18,17 +18,11 @@ public enum Mode implements EnumConverter<Mode> {
     }
 
     public static Mode from(String value) {
-        for (Mode mode : Mode.values()) {
-            if (mode.val.equals(value)) {
-                return mode;
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Mode v) {
-        return v.val;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

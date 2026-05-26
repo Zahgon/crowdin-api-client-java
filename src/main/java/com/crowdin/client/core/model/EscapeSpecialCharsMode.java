@@ -1,8 +1,8 @@
 package com.crowdin.client.core.model;
 
 public enum EscapeSpecialCharsMode implements EnumConverter<EscapeSpecialCharsMode> {
-    DO_NOT_ESCAPE(0),
-    ESCAPE_BY_BACKSLASH(1);
+
+    DO_NOT_ESCAPE(0), ESCAPE_BY_BACKSLASH(1);
 
     private final int value;
 
@@ -11,11 +11,11 @@ public enum EscapeSpecialCharsMode implements EnumConverter<EscapeSpecialCharsMo
     }
 
     public static EscapeSpecialCharsMode from(String value) {
-        return EscapeSpecialCharsMode.values()[Integer.parseInt(value)];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Object to(EscapeSpecialCharsMode v) {
-        return v.value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

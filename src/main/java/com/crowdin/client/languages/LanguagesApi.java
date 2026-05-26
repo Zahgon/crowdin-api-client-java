@@ -13,12 +13,12 @@ import com.crowdin.client.languages.model.AddCustomLanguageRequest;
 import com.crowdin.client.languages.model.Language;
 import com.crowdin.client.languages.model.LanguageResponseList;
 import com.crowdin.client.languages.model.LanguageResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class LanguagesApi extends CrowdinApi {
+
     public LanguagesApi(Credentials credentials) {
         super(credentials);
     }
@@ -37,12 +37,7 @@ public class LanguagesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Language> listSupportedLanguages(Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        LanguageResponseList languageResponseList = this.httpClient.get(this.url + "/languages", new HttpRequestConfig(queryParams), LanguageResponseList.class);
-        return LanguageResponseList.to(languageResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -54,8 +49,7 @@ public class LanguagesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Language> addCustomLanguage(AddCustomLanguageRequest request) throws HttpException, HttpBadRequestException {
-        LanguageResponseObject projectResponseObject = this.httpClient.post(this.url + "/languages", request, new HttpRequestConfig(), LanguageResponseObject.class);
-        return ResponseObject.of(projectResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -67,8 +61,7 @@ public class LanguagesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Language> getLanguage(String languageId) throws HttpException, HttpBadRequestException {
-        LanguageResponseObject languageResponseObject = this.httpClient.get(this.url + "/languages/" + languageId, new HttpRequestConfig(), LanguageResponseObject.class);
-        return ResponseObject.of(languageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -79,7 +72,7 @@ public class LanguagesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteLanguage(String languageId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/languages/" + languageId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -92,7 +85,6 @@ public class LanguagesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Language> editLanguage(String languageId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        LanguageResponseObject languageResponseObject = this.httpClient.patch(this.url + "/languages/" + languageId, request, new HttpRequestConfig(), LanguageResponseObject.class);
-        return ResponseObject.of(languageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

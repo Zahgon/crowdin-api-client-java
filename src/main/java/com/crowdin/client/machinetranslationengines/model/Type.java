@@ -4,14 +4,21 @@ import com.crowdin.client.core.model.EnumConverter;
 
 public enum Type implements EnumConverter<Type> {
 
-    GOOGLE, GOOGLE_AUTOML, MICROSOFT, DEEPL, AMAZON, MODERNMT, CROWDIN, CUSTOM_MT;
+    GOOGLE,
+    GOOGLE_AUTOML,
+    MICROSOFT,
+    DEEPL,
+    AMAZON,
+    MODERNMT,
+    CROWDIN,
+    CUSTOM_MT;
 
     public static Type from(String value) {
-        return Type.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Type v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

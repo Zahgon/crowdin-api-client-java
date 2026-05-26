@@ -3,6 +3,7 @@ package com.crowdin.client.translations.model;
 import com.crowdin.client.core.model.EnumConverter;
 
 public enum AutoApproveOption implements EnumConverter<AutoApproveOption> {
+
     NONE("none"), ALL("all"), EXCEPT_AUTO_SUBSTITUTED("exceptAutoSubstituted"), PERFECT_MATCH_ONLY("perfectMatchOnly");
 
     private final String value;
@@ -12,16 +13,11 @@ public enum AutoApproveOption implements EnumConverter<AutoApproveOption> {
     }
 
     public static AutoApproveOption from(String value) {
-        for (AutoApproveOption m : AutoApproveOption.values()) {
-            if (m.value.equals(value)) {
-                return m;
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(AutoApproveOption v) {
-        return v.value;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

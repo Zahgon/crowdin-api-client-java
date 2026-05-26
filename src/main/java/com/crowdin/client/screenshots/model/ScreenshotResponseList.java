@@ -4,7 +4,6 @@ import com.crowdin.client.core.model.Pagination;
 import com.crowdin.client.core.model.ResponseList;
 import com.crowdin.client.core.model.ResponseObject;
 import lombok.Data;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,15 +11,10 @@ import java.util.stream.Collectors;
 public class ScreenshotResponseList {
 
     private List<ScreenshotResponseObject> data;
+
     private Pagination pagination;
 
     public static ResponseList<Screenshot> to(ScreenshotResponseList screenshotResponseList) {
-        return ResponseList.of(
-                screenshotResponseList.getData().stream()
-                        .map(ScreenshotResponseObject::getData)
-                        .map(ResponseObject::of)
-                        .collect(Collectors.toList()),
-                screenshotResponseList.getPagination()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

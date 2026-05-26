@@ -7,11 +7,11 @@ public enum Unit implements EnumConverter<Unit> {
     WORDS, STRINGS, CHARS, CHARS_WITH_SPACES;
 
     public static Unit from(String value) {
-        return Unit.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(Unit v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -6,7 +6,6 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.projectsgroups.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -31,23 +30,11 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Group> listGroups(Long parentId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListGroupOptions options = new ListGroupOptions();
-        options.setParentId(parentId);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listGroups(options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Group> listGroups(ListGroupOptions options) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "parentId", Optional.ofNullable(options.getParentId()),
-                "userId", Optional.ofNullable(options.getUserId()),
-                "orderBy", Optional.ofNullable(options.getOrderBy()),
-                "limit", Optional.ofNullable(options.getLimit()),
-                "offset", Optional.ofNullable(options.getOffset())
-        );
-        GroupResponseList groupResponseList = this.httpClient.get(this.url + "/groups", new HttpRequestConfig(queryParams), GroupResponseList.class);
-        return GroupResponseList.to(groupResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -58,8 +45,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Group> addGroup(AddGroupRequest request) throws HttpException, HttpBadRequestException {
-        GroupResponseObject groupResponseObject = this.httpClient.post(this.url + "/groups", request, new HttpRequestConfig(), GroupResponseObject.class);
-        return ResponseObject.of(groupResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -70,8 +56,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Group> getGroup(Long groupId) throws HttpException, HttpBadRequestException {
-        GroupResponseObject groupResponseObject = this.httpClient.get(this.url + "/groups/" + groupId, new HttpRequestConfig(), GroupResponseObject.class);
-        return ResponseObject.of(groupResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -81,7 +66,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteGroup(Long groupId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/groups/" + groupId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -93,8 +78,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Group> editGroup(Long groupId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        GroupResponseObject groupResponseObject = this.httpClient.patch(this.url + "/groups/" + groupId, request, new HttpRequestConfig(), GroupResponseObject.class);
-        return ResponseObject.of(groupResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -109,12 +93,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<? extends Project> listProjects(Long groupId, Integer hasManagerAccess, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListProjectOptions options = new ListProjectOptions();
-        options.setGroupId(groupId);
-        options.setHasManagerAccess(hasManagerAccess);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        return listProjects(options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -130,30 +109,11 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<? extends Project> listProjects(Long groupId, Integer hasManagerAccess, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListProjectOptions options = new ListProjectOptions();
-        options.setGroupId(groupId);
-        options.setHasManagerAccess(hasManagerAccess);
-        options.setLimit(limit);
-        options.setOffset(offset);
-        options.setOrderByList(orderBy);
-        return listProjects(options);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<? extends Project> listProjects(ListProjectOptions options) throws HttpException, HttpBadRequestException {
-        String orderBy = options.getOrderByList() != null
-                ? OrderByField.generateSortParam(options.getOrderByList())
-                : options.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "groupId", Optional.ofNullable(options.getGroupId()),
-                "hasManagerAccess", Optional.ofNullable(options.getHasManagerAccess()),
-                "orderBy", Optional.ofNullable(orderBy),
-                "type", Optional.ofNullable(options.getType()),
-                "limit", Optional.ofNullable(options.getLimit()),
-                "offset", Optional.ofNullable(options.getOffset())
-        );
-        ProjectResponseList projectResponseList = this.httpClient.get(this.url + "/projects", new HttpRequestConfig(queryParams), ProjectResponseList.class);
-        return ProjectResponseList.to(projectResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -165,8 +125,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends Project> addProject(AddProjectRequest request) throws HttpException, HttpBadRequestException {
-        ProjectResponseObject projectResponseObject = this.httpClient.post(this.url + "/projects", request, new HttpRequestConfig(), ProjectResponseObject.class);
-        return ResponseObject.of(projectResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -178,8 +137,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends Project> getProject(Long projectId) throws HttpException, HttpBadRequestException {
-        ProjectResponseObject projectResponseObject = this.httpClient.get(this.url + "/projects/" + projectId, new HttpRequestConfig(), ProjectResponseObject.class);
-        return ResponseObject.of(projectResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -190,7 +148,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteProject(Long projectId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -203,8 +161,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<? extends Project> editProject(Long projectId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        ProjectResponseObject projectResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId, request, new HttpRequestConfig(), ProjectResponseObject.class);
-        return ResponseObject.of(projectResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     //<editor-fold desc="File Format Settings">
@@ -218,9 +175,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadProjectFileFormatSettingsCustomSegmentation(Long projectId, Long fileFormatSettingsId) {
-        String url = formUrl_projectFileFormatSettingsId_customSegmentations(projectId, fileFormatSettingsId);
-        DownloadLinkResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -232,8 +187,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public void resetProjectFileFormatSettingsCustomSegmentation(Long projectId, Long fileFormatSettingsId) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectFileFormatSettingsId_customSegmentations(projectId, fileFormatSettingsId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -244,9 +198,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<FileFormatSettingsResource> listProjectFileFormatSettings(Long projectId) {
-        String url = formUrl_projectFileFormatSettings(projectId);
-        FileFormatSettingsResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(), FileFormatSettingsResponseList.class);
-        return FileFormatSettingsResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -258,9 +210,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FileFormatSettingsResource> addProjectFileFormatSettings(Long projectId, AddProjectFileFormatSettingsRequest request) {
-        String url = formUrl_projectFileFormatSettings(projectId);
-        FileFormatSettingsResponseObject response = this.httpClient.post(url, request, new HttpRequestConfig(), FileFormatSettingsResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -273,9 +223,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FileFormatSettingsResource> getProjectFileFormatSettings(Long projectId, Long fileFormatSettingsId) {
-        String url = formUrl_projectFileFormatSettingsId(projectId, fileFormatSettingsId);
-        FileFormatSettingsResponseObject response = this.httpClient.get(url, new HttpRequestConfig(), FileFormatSettingsResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -287,8 +235,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteProjectFileFormatSettings(Long projectId, Long fileFormatSettingsId) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectFileFormatSettingsId(projectId, fileFormatSettingsId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -302,9 +249,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<FileFormatSettingsResource> editProjectFileFormatSettings(Long projectId, Long fileFormatSettingsId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectFileFormatSettingsId(projectId, fileFormatSettingsId);
-        FileFormatSettingsResponseObject response = this.httpClient.patch(url, request, new HttpRequestConfig(), FileFormatSettingsResponseObject.class);
-        return ResponseObject.of(response.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     //<editor-fold desc="Helper methods">
@@ -319,12 +264,10 @@ public class ProjectsGroupsApi extends CrowdinApi {
     private String formUrl_projectFileFormatSettingsId_customSegmentations(Long projectId, Long fileFormatSettingsId) {
         return this.url + "/projects/" + projectId + "/file-format-settings/" + fileFormatSettingsId + "/custom-segmentations";
     }
-    //</editor-fold>
 
     //</editor-fold>
-
+    //</editor-fold>
     //<editor-fold desc="Strings Exporter Settings">
-
     /**
      * @param projectId project identifier
      * @return list of strings exporter settings resources
@@ -334,9 +277,7 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StringsExporterSettingsResource> listProjectStringsExporterSettings(Long projectId) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectStringsExporterSettings(projectId);
-        StringsExporterSettingsResponseList responseList = this.httpClient.get(url, new HttpRequestConfig(), StringsExporterSettingsResponseList.class);
-        return StringsExporterSettingsResponseList.to(responseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -348,13 +289,8 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.projects.strings-exporter-settings.post" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseObject<StringsExporterSettingsResource> addProjectStringsExporterSettings(
-            Long projectId,
-            StringsExporterSettingsRequest data
-    ) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectStringsExporterSettings(projectId);
-        StringsExporterSettingsResponseObject responseObject = this.httpClient.post(url, data, new HttpRequestConfig(), StringsExporterSettingsResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+    public ResponseObject<StringsExporterSettingsResource> addProjectStringsExporterSettings(Long projectId, StringsExporterSettingsRequest data) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -366,13 +302,8 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.projects.strings-exporter-settings.get" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseObject<StringsExporterSettingsResource> getProjectStringsExporterSettings(
-            Long projectId,
-            Long systemStringsExporterSettingsId
-    ) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectStringsExporterSettingsId(projectId, systemStringsExporterSettingsId);
-        StringsExporterSettingsResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), StringsExporterSettingsResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+    public ResponseObject<StringsExporterSettingsResource> getProjectStringsExporterSettings(Long projectId, Long systemStringsExporterSettingsId) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -383,12 +314,8 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.projects.strings-exporter-settings.delete" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public void deleteProjectStringsExporterSettings(
-            Long projectId,
-            Long systemStringsExporterSettingsId
-    ) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectStringsExporterSettingsId(projectId, systemStringsExporterSettingsId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+    public void deleteProjectStringsExporterSettings(Long projectId, Long systemStringsExporterSettingsId) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -400,18 +327,11 @@ public class ProjectsGroupsApi extends CrowdinApi {
      * <li><a href="https://developer.crowdin.com/enterprise/api/v2/#operation/api.projects.strings-exporter-settings.patch" target="_blank"><b>Enterprise API Documentation</b></a></li>
      * </ul>
      */
-    public ResponseObject<StringsExporterSettingsResource> editProjectStringsExporterSettings(
-            Long projectId,
-            Long systemStringsExporterSettingsId,
-            StringsExporterSettingsRequest request
-    ) throws HttpException, HttpBadRequestException {
-        String url = formUrl_projectStringsExporterSettingsId(projectId, systemStringsExporterSettingsId);
-        StringsExporterSettingsResponseObject responseObject = this.httpClient.patch(url, request, new HttpRequestConfig(), StringsExporterSettingsResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+    public ResponseObject<StringsExporterSettingsResource> editProjectStringsExporterSettings(Long projectId, Long systemStringsExporterSettingsId, StringsExporterSettingsRequest request) throws HttpException, HttpBadRequestException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     //<editor-fold desc="Helper methods">
-
     private String formUrl_projectStringsExporterSettings(Long projectId) {
         return this.url + "/projects/" + projectId + "/strings-exporter-settings";
     }
@@ -419,8 +339,6 @@ public class ProjectsGroupsApi extends CrowdinApi {
     private String formUrl_projectStringsExporterSettingsId(Long projectId, Long systemStringsExporterSettingsId) {
         return this.url + "/projects/" + projectId + "/strings-exporter-settings/" + systemStringsExporterSettingsId;
     }
-
     //</editor-fold>
-
     //</editor-fold>
 }

@@ -11,7 +11,6 @@ import com.crowdin.client.core.model.ResponseObject;
 import com.crowdin.client.storage.model.Storage;
 import com.crowdin.client.storage.model.StorageResponseList;
 import com.crowdin.client.storage.model.StorageResponseObject;
-
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.Map;
@@ -37,12 +36,7 @@ public class StorageApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Storage> listStorages(Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Integer>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        StorageResponseList storageResponseList = this.httpClient.get(this.url + "/storages", new HttpRequestConfig(queryParams), StorageResponseList.class);
-        return StorageResponseList.to(storageResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -55,11 +49,7 @@ public class StorageApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Storage> addStorage(String fileName, String content) throws HttpException, HttpBadRequestException {
-        StorageResponseObject storageResponseObject = this.httpClient.post(this.url + "/storages", content, new HttpRequestConfig(
-                Collections.emptyMap(),
-                Collections.singletonMap("Crowdin-API-FileName", fileName)
-        ), StorageResponseObject.class);
-        return ResponseObject.of(storageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -72,11 +62,7 @@ public class StorageApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Storage> addStorage(String fileName, InputStream content) throws HttpException, HttpBadRequestException {
-        StorageResponseObject storageResponseObject = this.httpClient.post(this.url + "/storages", content, new HttpRequestConfig(
-                Collections.emptyMap(),
-                Collections.singletonMap("Crowdin-API-FileName", fileName)
-        ), StorageResponseObject.class);
-        return ResponseObject.of(storageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -88,8 +74,7 @@ public class StorageApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Storage> getStorage(Long storageId) throws HttpException, HttpBadRequestException {
-        StorageResponseObject storageResponseObject = this.httpClient.get(this.url + "/storages/" + storageId, new HttpRequestConfig(), StorageResponseObject.class);
-        return ResponseObject.of(storageResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -100,7 +85,6 @@ public class StorageApi extends CrowdinApi {
      * </ul>
      */
     public void deleteStorage(Long storageId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/storages/" + storageId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

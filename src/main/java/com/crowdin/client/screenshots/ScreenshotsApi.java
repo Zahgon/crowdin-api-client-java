@@ -6,13 +6,13 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.screenshots.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ScreenshotsApi extends CrowdinApi {
+
     public ScreenshotsApi(Credentials credentials) {
         super(credentials);
     }
@@ -54,13 +54,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Screenshot> listScreenshots(Long projectId, List<String> stringIds, List<String> labelIds, List<String> excludeLabelIds, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListScreenshotsParams screenshotsParams = new ListScreenshotsParams();
-        screenshotsParams.setStringIds(Optional.ofNullable(stringIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setLabelIds(Optional.ofNullable(labelIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setExcludeLabelIds(Optional.ofNullable(excludeLabelIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setLimit(limit);
-        screenshotsParams.setOffset(offset);
-        return this.listScreenshots(projectId, screenshotsParams);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -78,15 +72,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Screenshot> listScreenshots(Long projectId, List<String> stringIds, List<String> labelIds, List<String> excludeLabelIds, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListScreenshotsParams screenshotsParams = new ListScreenshotsParams();
-        screenshotsParams.setStringIds(Optional.ofNullable(stringIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setLabelIds(Optional.ofNullable(labelIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setExcludeLabelIds(Optional.ofNullable(excludeLabelIds).map(l -> String.join(",", l)).orElse(null));
-        screenshotsParams.setLimit(limit);
-        screenshotsParams.setOffset(offset);
-        screenshotsParams.setOrderByList(orderBy);
-
-        return this.listScreenshots(projectId, screenshotsParams);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -99,23 +85,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Screenshot> listScreenshots(Long projectId, ListScreenshotsParams params) throws HttpException, HttpBadRequestException {
-        ListScreenshotsParams query = Optional.ofNullable(params).orElse(new ListScreenshotsParams());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "search", Optional.ofNullable(query.getSearch()),
-                "orderBy", Optional.ofNullable(orderBy),
-                "stringIds", Optional.ofNullable(query.getStringIds()),
-                "labelIds", Optional.ofNullable(query.getLabelIds()),
-                "excludeLabelIds", Optional.ofNullable(query.getExcludeLabelIds()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset())
-        );
-        ScreenshotResponseList screenshotResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/screenshots", new HttpRequestConfig(queryParams), ScreenshotResponseList.class);
-        return ScreenshotResponseList.to(screenshotResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -128,8 +98,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Screenshot> addScreenshot(Long projectId, AddScreenshotRequest request) throws HttpException, HttpBadRequestException {
-        ScreenshotResponseObject screenshotResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/screenshots", request, new HttpRequestConfig(), ScreenshotResponseObject.class);
-        return ResponseObject.of(screenshotResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -142,8 +111,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Screenshot> getScreenshot(Long projectId, Long screenshotId) throws HttpException, HttpBadRequestException {
-        ScreenshotResponseObject screenshotResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId, new HttpRequestConfig(), ScreenshotResponseObject.class);
-        return ResponseObject.of(screenshotResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -157,8 +125,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Screenshot> updateScreenshot(Long projectId, Long screenshotId, UpdateScreenshotRequest request) throws HttpException, HttpBadRequestException {
-        ScreenshotResponseObject screenshotResponseObject = this.httpClient.put(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId, request, new HttpRequestConfig(), ScreenshotResponseObject.class);
-        return ResponseObject.of(screenshotResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -170,7 +137,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteScreenshot(Long projectId, Long screenshotId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -184,8 +151,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Screenshot> editScreenshot(Long projectId, Long screenshotId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        ScreenshotResponseObject screenshotResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId, request, new HttpRequestConfig(), ScreenshotResponseObject.class);
-        return ResponseObject.of(screenshotResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -200,12 +166,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Tag> listTags(Long projectId, Long screenshotId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        TagResponseList tagResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags", new HttpRequestConfig(queryParams), TagResponseList.class);
-        return TagResponseList.to(tagResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -218,7 +179,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public void replaceTags(Long projectId, Long screenshotId, ReplaceTagsRequest request) throws HttpException, HttpBadRequestException {
-        this.httpClient.put(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags", request, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -232,10 +193,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<List<Tag>> addTag(Long projectId, Long screenshotId, List<AddTagRequest> request) throws HttpException, HttpBadRequestException {
-        TagResponseList tagResponseList = this.httpClient.post(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags", request, new HttpRequestConfig(), TagResponseList.class);
-        return ResponseObject.of(tagResponseList.getData().stream()
-                .map(TagResponseObject::getData)
-                .collect(Collectors.toList()));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -247,7 +205,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public void clearTags(Long projectId, Long screenshotId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags", new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -261,8 +219,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Tag> getTag(Long projectId, Long screenshotId, Long tagId) throws HttpException, HttpBadRequestException {
-        TagResponseObject tagResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags/" + tagId, new HttpRequestConfig(), TagResponseObject.class);
-        return ResponseObject.of(tagResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -275,7 +232,7 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteTag(Long projectId, Long screenshotId, Long tagId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags/" + tagId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -290,7 +247,6 @@ public class ScreenshotsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Tag> editTag(Long projectId, Long screenshotId, Long tagId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        TagResponseObject tagResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/screenshots/" + screenshotId + "/tags/" + tagId, request, new HttpRequestConfig(), TagResponseObject.class);
-        return ResponseObject.of(tagResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

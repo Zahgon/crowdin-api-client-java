@@ -29,8 +29,7 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<BranchCloneStatus> cloneBranch(Long projectId, Long branchId, CloneBranchRequest request) throws HttpException, HttpBadRequestException {
-        BranchCloneStatusResponseObject branchResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/branches/" + branchId + "/clones", request, new HttpRequestConfig(), BranchCloneStatusResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -43,8 +42,7 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<BranchCloneStatus> checkCloneBranchStatus(Long projectId, Long branchId, String cloneId) throws HttpException, HttpBadRequestException {
-        BranchCloneStatusResponseObject branchResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId + "/clones/" + cloneId, new HttpRequestConfig(), BranchCloneStatusResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -57,8 +55,7 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ClonedBranch> getClonedBranch(Long projectId, Long branchId, String cloneId) throws HttpException, HttpBadRequestException {
-        ClonedBranchResponseObject branchResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId + "/clones/" + cloneId + "/branch", new HttpRequestConfig(), ClonedBranchResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -71,8 +68,7 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<BranchMergeStatus> mergeBranch(Long projectId, Long branchId, MergeBranchRequest request) throws HttpException, HttpBadRequestException {
-        BranchMergeStatusResponseObject branchResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/branches/" + branchId + "/merges", request, new HttpRequestConfig(), BranchMergeStatusResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -85,8 +81,7 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<BranchMergeStatus> checkMergeBranchStatus(Long projectId, Long branchId, String mergeId) throws HttpException, HttpBadRequestException {
-        BranchMergeStatusResponseObject branchResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId + "/merges/" + mergeId, new HttpRequestConfig(), BranchMergeStatusResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -99,7 +94,6 @@ public class BranchesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<BranchMergeSummary> getMergeBranchSummary(Long projectId, Long branchId, String mergeId) throws HttpException, HttpBadRequestException {
-        BranchMergeSummaryResponseObject branchResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/branches/" + branchId + "/merges/" + mergeId + "/summary", new HttpRequestConfig(), BranchMergeSummaryResponseObject.class);
-        return ResponseObject.of(branchResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

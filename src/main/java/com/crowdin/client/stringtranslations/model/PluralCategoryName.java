@@ -4,14 +4,19 @@ import com.crowdin.client.core.model.EnumConverter;
 
 public enum PluralCategoryName implements EnumConverter<PluralCategoryName> {
 
-    ZERO, ONE, TWO, FEW, MANY, OTHER;
+    ZERO,
+    ONE,
+    TWO,
+    FEW,
+    MANY,
+    OTHER;
 
     public static PluralCategoryName from(String value) {
-        return PluralCategoryName.valueOf(value.toUpperCase());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(PluralCategoryName v) {
-        return v.name().toLowerCase();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

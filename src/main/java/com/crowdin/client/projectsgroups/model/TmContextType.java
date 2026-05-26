@@ -1,10 +1,10 @@
 package com.crowdin.client.projectsgroups.model;
 
 import com.crowdin.client.core.model.EnumConverter;
-
 import java.util.stream.Stream;
 
 public enum TmContextType implements EnumConverter<TmContextType> {
+
     SEGMENT_CONTEXT("segmentContext"), AUTO("auto"), PREV_AND_NEXT_SEGMENT("prevAndNextSegment");
 
     private final String val;
@@ -14,11 +14,11 @@ public enum TmContextType implements EnumConverter<TmContextType> {
     }
 
     public static TmContextType from(String value) {
-        return Stream.of(TmContextType.values()).filter(e -> e.val.equals(value)).findFirst().orElse(null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String to(TmContextType v) {
-        return v.val;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

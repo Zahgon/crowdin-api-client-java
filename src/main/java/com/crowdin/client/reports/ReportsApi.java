@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.reports.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class ReportsApi extends CrowdinApi {
+
     public ReportsApi(Credentials credentials) {
         super(credentials);
     }
@@ -29,9 +29,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> generateGroupReport(Long groupId, GenerateGroupReportRequest request) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/groups/" + groupId + "/reports";
-        GroupReportStatusResponseObject responseObject = this.httpClient.post(url, request, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -43,9 +41,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> checkGroupReportGenerationStatus(Long groupId, String reportId) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/groups/" + groupId + "/reports/" + reportId;
-        GroupReportStatusResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -57,9 +53,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadGroupReport(Long groupId, String reportId) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/groups/" + groupId + "/reports/" + reportId + "/download";
-        DownloadLinkResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -70,9 +64,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> generateOrganizationReport(GenerateGroupReportRequest request) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/reports";
-        GroupReportStatusResponseObject responseObject = this.httpClient.post(url, request, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,9 +75,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> checkOrganizationReportGenerationStatus(String reportId) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/reports/" + reportId;
-        GroupReportStatusResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -96,9 +86,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadOrganizationReport(String reportId) throws HttpException, HttpBadRequestException {
-        String url = this.url + "/reports/" + reportId + "/download";
-        DownloadLinkResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -108,14 +96,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ReportSettingsTemplate.OrganizationReportSettingsTemplate> listOrganizationReportSettingsTemplates(ListOrganizationReportSettingsParams params) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "projectId", Optional.ofNullable(params.getProjectId()),
-                "groupId", Optional.ofNullable(params.getGroupId()),
-                "limit", Optional.ofNullable(params.getLimit()),
-                "offset", Optional.ofNullable(params.getOffset())
-        );
-        OrganizationReportSettingsTemplateList reportSettingsTemplateList = this.httpClient.get(this.url + "/reports/settings-templates", new HttpRequestConfig(queryParams), OrganizationReportSettingsTemplateList.class);
-        return OrganizationReportSettingsTemplateList.to(reportSettingsTemplateList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -126,8 +107,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate.OrganizationReportSettingsTemplate> addOrganizationReportSettingsTemplate(ReportSettingsTemplate.OrganizationReportSettingsTemplate request) throws HttpException, HttpBadRequestException {
-        OrganizationReportSettingsTemplateResponseObject responseObject = this.httpClient.post(this.url + "/reports/settings-templates", request, new HttpRequestConfig(), OrganizationReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -138,8 +118,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate.OrganizationReportSettingsTemplate> getOrganizationReportSettingsTemplate(Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        OrganizationReportSettingsTemplateResponseObject responseObject = this.httpClient.get(this.url + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), OrganizationReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -151,8 +130,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate.OrganizationReportSettingsTemplate> editOrganizationReportSettingsTemplate(Long reportSettingsTemplateId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        OrganizationReportSettingsTemplateResponseObject responseObject = this.httpClient.patch(this.url + "/reports/settings-templates/" + reportSettingsTemplateId, request, new HttpRequestConfig(), OrganizationReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -162,7 +140,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteOrganizationReportSettingsTemplate(Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -175,8 +153,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportStatus> generateReport(Long projectId, GenerateReportRequest request) throws HttpException, HttpBadRequestException {
-        ReportStatusResponseObject reportStatusResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/reports", request, new HttpRequestConfig(), ReportStatusResponseObject.class);
-        return ResponseObject.of(reportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -189,8 +166,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportStatus> checkReportGenerationStatus(Long projectId, String reportId) throws HttpException, HttpBadRequestException {
-        ReportStatusResponseObject reportStatusResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/reports/" + reportId, new HttpRequestConfig(), ReportStatusResponseObject.class);
-        return ResponseObject.of(reportStatusResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -203,8 +179,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadReport(Long projectId, String reportId) throws HttpException, HttpBadRequestException {
-        DownloadLinkResponseObject downloadLinkResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/reports/" + reportId + "/download", new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(downloadLinkResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -218,12 +193,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ReportSettingsTemplate> listReportSettingsTemplate(Long projectId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        ReportSettingsTemplateList reportSettingsTemplateList = this.httpClient.get(this.url + "/projects/" + projectId + "/reports/settings-templates", new HttpRequestConfig(queryParams), ReportSettingsTemplateList.class);
-        return ReportSettingsTemplateList.to(reportSettingsTemplateList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -236,8 +206,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> addReportSettingsTemplate(Long projectId, ReportSettingsTemplate request) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/reports/settings-templates", request, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -250,8 +219,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> getReportSettingsTemplate(Long projectId, Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -265,8 +233,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> editReportSettingsTemplate(Long projectId, Long reportSettingsTemplateId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/reports/settings-templates/" + reportSettingsTemplateId, request, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -278,13 +245,11 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteReportSettingsTemplate(Long projectId, Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     // -- USER REPORTS -- //
-
     /**
-     *
      * @param userId user identifier
      * @param limit (default 25)
      * @param offset (default 0)
@@ -295,16 +260,10 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ReportSettingsTemplate> listUserReportSettingsTemplate(Long userId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        ReportSettingsTemplateList reportSettingsTemplateList = this.httpClient.get(this.url + "/users/" + userId + "/reports/settings-templates", new HttpRequestConfig(queryParams), ReportSettingsTemplateList.class);
-        return ReportSettingsTemplateList.to(reportSettingsTemplateList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
-     *
      * @param userId user identifier
      * @param request request object
      * @return user report settings template
@@ -314,12 +273,10 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> addUserReportSettingsTemplate(Long userId, ReportSettingsTemplate request) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.post(this.url + "/users/" + userId + "/reports/settings-templates", request, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
-     *
      * @param userId user identifier
      * @param reportSettingsTemplateId report settings template identifier
      * @return user report settings template
@@ -329,12 +286,10 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> getUserReportSettingsTemplate(Long userId, Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.get(this.url + "/users/" + userId + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
-     *
      * @param userId user identifier
      * @param reportSettingsTemplateId report settings template identifier
      * @param request request object
@@ -345,12 +300,10 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportSettingsTemplate> editUserReportSettingsTemplate(Long userId, Long reportSettingsTemplateId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        ReportSettingsTemplateResponseObject responseObject = this.httpClient.patch(this.url + "/users/" + userId + "/reports/settings-templates/" + reportSettingsTemplateId, request, new HttpRequestConfig(), ReportSettingsTemplateResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
-     *
      * @param userId user identifier
      * @param reportSettingsTemplateId report settings template identifier
      * @see <ul>
@@ -359,11 +312,10 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteUserReportSettingsTemplate(Long userId, Long reportSettingsTemplateId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/users/" + userId + "/reports/settings-templates/" + reportSettingsTemplateId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     // -- REPORT ARCHIVES -- //
-
     /**
      * @param userId    user identifier
      * @param scopeType Filter only project report archives (scopeType=project)
@@ -377,15 +329,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<ReportArchive> listReportArchives(Long userId, String scopeType, Long scopeId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives/");
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "scopeType", Optional.ofNullable(scopeType),
-                "scopeId", Optional.ofNullable(scopeId),
-                "limit", Optional.ofNullable(limit),
-                "offset", Optional.ofNullable(offset)
-        );
-        ReportArchiveList responseObject = this.httpClient.get(url, new HttpRequestConfig(queryParams), ReportArchiveList.class);
-        return ReportArchiveList.to(responseObject);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -398,9 +342,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<ReportArchive> getReportArchive(Long userId, Long archiveId) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives/" + archiveId);
-        ReportArchiveResponseObject reportArchiveResponseObject = this.httpClient.get(url, new HttpRequestConfig(), ReportArchiveResponseObject.class);
-        return ResponseObject.of(reportArchiveResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -412,8 +354,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteReportArchive(Long userId, Long archiveId) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives/" + archiveId);
-        this.httpClient.delete(url, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -427,9 +368,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> exportReportArchive(Long userId, Long archiveId, ExportReportRequest request) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives/" + archiveId + "/exports");
-        GroupReportStatusResponseObject responseObject = this.httpClient.post(url, request, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -442,9 +381,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<GroupReportStatus> checkReportArchiveExportStatus(Long userId, Long archiveId, String exportId) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives/" + archiveId + "/exports/" + exportId);
-        GroupReportStatusResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), GroupReportStatusResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -458,9 +395,7 @@ public class ReportsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DownloadLink> downloadReportArchive(Long userId, Long archiveId, String exportId) throws HttpException, HttpBadRequestException {
-        String url = getReportArchivesPath(userId, "reports/archives" + archiveId + "/exports/" + exportId + "/download");
-        DownloadLinkResponseObject responseObject = this.httpClient.get(url, new HttpRequestConfig(), DownloadLinkResponseObject.class);
-        return ResponseObject.of(responseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**

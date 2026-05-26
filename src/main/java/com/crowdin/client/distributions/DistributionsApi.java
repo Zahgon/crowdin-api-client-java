@@ -14,7 +14,6 @@ import com.crowdin.client.distributions.model.DistributionResponseList;
 import com.crowdin.client.distributions.model.DistributionResponseObject;
 import com.crowdin.client.distributions.model.DistributionStringsBasedRelease;
 import com.crowdin.client.distributions.model.DistributionStringsBasedReleaseResponseObject;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -40,19 +39,11 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<Distribution> listDistributions(Long projectId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        Pagination pagination = new Pagination();
-        pagination.setLimit(limit);
-        pagination.setOffset(offset);
-        return listDistributions(projectId, pagination);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<Distribution> listDistributions(Long projectId, Pagination options) throws HttpException, HttpBadRequestException {
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "limit", Optional.ofNullable(options.getLimit()),
-                "offset", Optional.ofNullable(options.getOffset())
-        );
-        DistributionResponseList distributionResponseList = this.httpClient.get(this.url + "/projects/" + projectId + "/distributions", new HttpRequestConfig(queryParams), DistributionResponseList.class);
-        return DistributionResponseList.to(distributionResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -65,13 +56,11 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Distribution> addDistribution(Long projectId, AddDistributionRequest request) throws HttpException, HttpBadRequestException {
-        DistributionResponseObject distributionResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/distributions", request, new HttpRequestConfig(), DistributionResponseObject.class);
-        return ResponseObject.of(distributionResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<Distribution> addDistributionStringsBased(Long projectId, AddDistributionStringsBasedRequest request) throws HttpException, HttpBadRequestException {
-        DistributionResponseObject distributionResponseObject = this.httpClient.post(this.url + "/projects/" + projectId + "/distributions", request, new HttpRequestConfig(), DistributionResponseObject.class);
-        return ResponseObject.of(distributionResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -84,8 +73,7 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Distribution> getDistribution(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        DistributionResponseObject distributionResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/distributions/" + hash, new HttpRequestConfig(), DistributionResponseObject.class);
-        return ResponseObject.of(distributionResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -97,7 +85,7 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public void deleteDistribution(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/projects/" + projectId + "/distributions/" + hash, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -111,8 +99,7 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<Distribution> editDistribution(Long projectId, String hash, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        DistributionResponseObject distributionResponseObject = this.httpClient.patch(this.url + "/projects/" + projectId + "/distributions/" + hash, request, new HttpRequestConfig(), DistributionResponseObject.class);
-        return ResponseObject.of(distributionResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -125,13 +112,11 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DistributionRelease> getDistributionRelease(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        DistributionReleaseResponseObject distributionReleaseResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/distributions/" + hash + "/release", new HttpRequestConfig(), DistributionReleaseResponseObject.class);
-        return ResponseObject.of(distributionReleaseResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<DistributionStringsBasedRelease> getDistributionStringsBasedRelease(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        DistributionStringsBasedReleaseResponseObject distributionReleaseResponseObject = this.httpClient.get(this.url + "/projects/" + projectId + "/distributions/" + hash + "/release", new HttpRequestConfig(), DistributionStringsBasedReleaseResponseObject.class);
-        return ResponseObject.of(distributionReleaseResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -144,16 +129,10 @@ public class DistributionsApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<DistributionRelease> createDistributionRelease(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        DistributionReleaseResponseObject distributionReleaseResponseObject = this.httpClient.post(this.url +
-                        "/projects/" + projectId + "/distributions/" + hash + "/release", new DistributionRelease(), new HttpRequestConfig(),
-                DistributionReleaseResponseObject.class);
-        return ResponseObject.of(distributionReleaseResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseObject<DistributionStringsBasedRelease> createDistributionStringsBasedRelease(Long projectId, String hash) throws HttpException, HttpBadRequestException {
-        DistributionStringsBasedReleaseResponseObject distributionReleaseResponseObject = this.httpClient.post(this.url +
-                        "/projects/" + projectId + "/distributions/" + hash + "/release", new DistributionStringsBasedRelease(), new HttpRequestConfig(),
-                DistributionStringsBasedReleaseResponseObject.class);
-        return ResponseObject.of(distributionReleaseResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

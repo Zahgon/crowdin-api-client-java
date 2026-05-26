@@ -6,12 +6,12 @@ import com.crowdin.client.core.http.exceptions.HttpBadRequestException;
 import com.crowdin.client.core.http.exceptions.HttpException;
 import com.crowdin.client.core.model.*;
 import com.crowdin.client.styleguide.model.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public class StyleGuidesApi extends CrowdinApi {
+
     public StyleGuidesApi(Credentials credentials) {
         super(credentials);
     }
@@ -28,7 +28,7 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public void deleteStyleGuide(Long styleGuideId) throws HttpException, HttpBadRequestException {
-        this.httpClient.delete(this.url + "/style-guides/" + styleGuideId, new HttpRequestConfig(), Void.class);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -41,8 +41,7 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StyleGuide> editStyleGuide(Long styleGuideId, List<PatchRequest> request) throws HttpException, HttpBadRequestException {
-        StyleGuideResponseObject styleGuideResponseObject = this.httpClient.patch(this.url + "/style-guides/" + styleGuideId, request, new HttpRequestConfig(), StyleGuideResponseObject.class);
-        return ResponseObject.of(styleGuideResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -54,8 +53,7 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StyleGuide> getStyleGuide(Long styleGuideId) throws HttpException, HttpBadRequestException {
-        StyleGuideResponseObject styleGuideResponseObject = this.httpClient.get(this.url + "/style-guides/" + styleGuideId, new HttpRequestConfig(), StyleGuideResponseObject.class);
-        return ResponseObject.of(styleGuideResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -67,8 +65,7 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseObject<StyleGuide> addStyleGuide(AddStyleGuideRequest request) throws HttpException, HttpBadRequestException {
-        StyleGuideResponseObject styleGuideResponseObject = this.httpClient.post(this.url + "/style-guides", request, new HttpRequestConfig(), StyleGuideResponseObject.class);
-        return ResponseObject.of(styleGuideResponseObject.getData());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -82,11 +79,7 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StyleGuide> listStyleGuides(Long userId, Integer limit, Integer offset) throws HttpException, HttpBadRequestException {
-        ListStyleGuidesParams params = new ListStyleGuidesParams();
-        params.setUserId(userId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        return listStyleGuides(params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -101,28 +94,10 @@ public class StyleGuidesApi extends CrowdinApi {
      * </ul>
      */
     public ResponseList<StyleGuide> listStyleGuides(Long userId, Integer limit, Integer offset, List<OrderByField> orderBy) throws HttpException, HttpBadRequestException {
-        ListStyleGuidesParams params = new ListStyleGuidesParams();
-        params.setUserId(userId);
-        params.setLimit(limit);
-        params.setOffset(offset);
-        params.setOrderByList(orderBy);
-        return listStyleGuides(params);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public ResponseList<StyleGuide> listStyleGuides(ListStyleGuidesParams params) throws HttpException, HttpBadRequestException {
-        ListStyleGuidesParams query = Optional.ofNullable(params).orElse(new ListStyleGuidesParams());
-
-        String orderBy = query.getOrderByList() != null
-                ? OrderByField.generateSortParam(query.getOrderByList())
-                : query.getOrderBy();
-
-        Map<String, Optional<Object>> queryParams = HttpRequestConfig.buildUrlParams(
-                "userId", Optional.ofNullable(query.getUserId()),
-                "limit", Optional.ofNullable(query.getLimit()),
-                "offset", Optional.ofNullable(query.getOffset()),
-                "orderBy", Optional.ofNullable(orderBy)
-        );
-        StyleGuideResponseList styleGuideResponseList = this.httpClient.get(this.url + "/style-guides", new HttpRequestConfig(queryParams), StyleGuideResponseList.class);
-        return StyleGuideResponseList.to(styleGuideResponseList);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

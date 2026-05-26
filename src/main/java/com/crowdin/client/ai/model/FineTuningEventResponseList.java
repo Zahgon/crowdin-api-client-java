@@ -9,16 +9,12 @@ import lombok.Data;
 
 @Data
 public class FineTuningEventResponseList {
+
     private List<FineTuningEventResponseObject> data;
+
     private Pagination pagination;
 
     public static ResponseList<FineTuningEvent> to(FineTuningEventResponseList eventResponseList) {
-        return ResponseList.of(
-            eventResponseList.getData()
-                .stream()
-                .map(FineTuningEventResponseObject::getData)
-                .map(ResponseObject::of).collect(Collectors.toList()),
-            eventResponseList.getPagination()
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
